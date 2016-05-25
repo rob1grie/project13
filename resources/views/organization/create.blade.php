@@ -1,0 +1,49 @@
+@extends('layouts.main')
+
+@section('title', 'Add Organization')
+
+@section('content')
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Add Organization</h3>
+	</div>
+	<div class="panel-body">
+		{!! Form::open(array('action' => 'OrganizationsController@store', 'enctype' => 'multipart/form-data')) !!}
+		<div class="form-group">
+			{!! Form::label('name', 'Name') !!}
+			{!! Form::text('name', $value=null, $attributes = ['class' => 'form-control', 'name' => 'name']) !!}
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('address1', 'Address') !!}
+			{!! Form::text('address1', $value=null, $attributes = ['class' => 'form-control', 'name' => 'address1']) !!}
+		</div>
+
+		<div class="form-group">
+			{!! Form::label('address2', '') !!}
+			{!! Form::text('address2', $value=null, $attributes = ['class' => 'form-control', 'name' => 'address2']) !!}
+		</div>
+
+			<div class="form-group form-inline">
+				{!! Form::label('city', 'City') !!}
+				{!! Form::text('city', 
+					$value=null, 
+					$attributes = ['class' => 'form-control', 'name' => 'city', 'size' => 30]) !!}
+
+				{!! Form::label('state', 'State') !!}
+				{!! Form::text('state', 
+					$value=null, 
+					$attributes = ['class' => 'form-control', 'name' => 'state', 'size' => 4]) !!}
+
+				{!! Form::label('zipcode', 'Zip Code') !!}
+				{!! Form::text('zipcode', 
+					$value=null, 
+					$attributes = ['class' => 'form-control', 'name' => 'zipcode', 'size' => 12]) !!}
+			</div>
+
+		{!! Form::submit('Submit', $attributes = ['class' => 'btn btn-primary']) !!}
+
+		{!! Form::close() !!}
+	</div>
+</div>
+@stop
