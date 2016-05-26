@@ -52,7 +52,7 @@
 
 		</div>
 
-		{!! Form::submit('Submit', $attributes = ['class' => 'btn btn-primary']) !!}
+		{!! Form::submit('Submit', $attributes = ['class' => 'btn btn-primary']) !!} 
 
 		{!! Form::close() !!}
 	</div>

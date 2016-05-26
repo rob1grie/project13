@@ -53,7 +53,7 @@ class OrganizationsController extends Controller
 		$org->database_file = $database_file;
 		$org->save();
 		
-		return \Redirect::route('organizations.index')->with('message', 'Organization Added');
+		return \Redirect::route('organizations.show', compact('org'))->with('message', 'Organization Added');
     }
 
     /**
@@ -105,7 +105,7 @@ class OrganizationsController extends Controller
 		$org->database_file = $database_file;
 		$org->save();
 		
-		return \Redirect::route('organizations.index')->with('message', 'Organization Updated');
+		return \Redirect::route('organizations.show', compact('org'))->with('message', 'Organization Updated');
     }
 
     /**
