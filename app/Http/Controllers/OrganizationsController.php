@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Http\Requests\StoreOrganizationRequest;
-use App\Commands\StoreOrganizationCommand;
+use App\Organization;
 
 class OrganizationsController extends Controller
 {
@@ -58,13 +56,7 @@ class OrganizationsController extends Controller
 		$org->state = $state;
 		$org->zipcode = $zipcode;
 		$org->database_file = $database_file;
-		var_dump($org);
-//		$org->save();
-		
-//		// Instantiate the command
-//		$command = new StoreOrganizationCommand($name, $address1, $address2, $city, $state, $zipcode, $database_file);
-//		// Run the command
-//		$this->dispatch($command);
+		$org->save();
 		
 		return \Redirect::route('organizations.index')->with('message', 'Organization Added');
     }
