@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddMoreFieldsToOrganization' => $baseDir . '/database/migrations/2016_05_26_120516_add_more_fields_to_organization.php',
     'AddTestFieldToOrganizations' => $baseDir . '/database/migrations/2016_05_24_193617_add_test_field_to_organizations.php',
     'CreateOrganizationsTable' => $baseDir . '/database/migrations/2016_05_24_155055_create_organizations_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

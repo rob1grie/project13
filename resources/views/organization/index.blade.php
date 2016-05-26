@@ -6,7 +6,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">
-            Main Menu
+            Menu
         </h3>
     </div>
     <div class="list-group">

@@ -21,6 +21,8 @@ class CreateOrganizationsTable extends Migration
 			$table->string('state');
 			$table->string('zipcode');
 			$table->string('database_file');
+            $table->string('main_phone');
+            $table->string('alt_phone');
             $table->timestamps();
         });
     }

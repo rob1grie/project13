@@ -37,25 +37,19 @@ class OrganizationsController extends Controller
      */
     public function store(Request $request)
     {
-		// Get all inputs
-        $name = $request->input('name');
-        $address1 = $request->input('address1');
-        $address2 = $request->input('address2');
-        $city = $request->input('city');
-        $state = $request->input('state');
-        $zipcode = $request->input('zipcode');
-		
 		// TODO Need to generate the database file name
         $database_file = '';
 		
 		$org = new Organization();
 		
-		$org->name = $name;
-		$org->address1 = $address1;
-		$org->address2 = $address2;
-		$org->city = $city;
-		$org->state = $state;
-		$org->zipcode = $zipcode;
+		$org->name = $request->input('name');
+		$org->address1 = $request->input('address1');
+		$org->address2 = $request->input('address2');
+		$org->city = $request->input('city');
+		$org->state = $request->input('state');
+		$org->zipcode = $request->input('zipcode');
+		$org->main_phone = $request->input('main_phone');
+		$org->alt_phone = $request->input('alt_phone');
 		$org->database_file = $database_file;
 		$org->save();
 		
@@ -82,7 +76,8 @@ class OrganizationsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $org = Organization::find($id);
+		return view('organization/edit', compact('org'));
     }
 
     /**
@@ -94,7 +89,23 @@ class OrganizationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+		// TODO Need to generate the database file name
+        $database_file = '';
+		
+		$org = Organization::find($id);
+		
+		$org->name = $request->input('name');
+		$org->address1 = $request->input('address1');
+		$org->address2 = $request->input('address2');
+		$org->city = $request->input('city');
+		$org->state = $request->input('state');
+		$org->zipcode = $request->input('zipcode');
+		$org->main_phone = $request->input('main_phone');
+		$org->alt_phone = $request->input('alt_phone');
+		$org->database_file = $database_file;
+		$org->save();
+		
+		return \Redirect::route('organizations.index')->with('message', 'Organization Updated');
     }
 
     /**
