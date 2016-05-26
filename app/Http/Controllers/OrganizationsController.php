@@ -70,7 +70,8 @@ class OrganizationsController extends Controller
      */
     public function show($id)
     {
-        //
+        $org = Organization::find($id);
+        return view('organization/show', compact('org'));
     }
 
     /**

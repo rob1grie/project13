@@ -27,7 +27,7 @@
     <tbody>
         @foreach($orgs as $org)
         <tr>
-            <td>{{$org->name}}</td>
+            <td><a href='/organizations/{{ $org->id }}'>{{$org->name}}</a></td>
            <td>{{$org->city}}, {{$org->state}}</td>
         </tr>
         @endforeach
