@@ -26,13 +26,8 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 	
-	/*
-	 *  Database directory
-	 */
-	'database_dir' => '../storage/databases/',
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -61,9 +56,9 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'response_p13acc'),
+            'username' => env('DB_USERNAME', 'response_p13acc'),
+            'password' => env('DB_PASSWORD', 'P!34ccDB'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

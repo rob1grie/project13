@@ -12,7 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+//        DB::table('roles')->insert([
+//			['role' => 'District Administrator'],
+//			['role' => 'Organization Administrator'],
+//			['role' => 'Black Hat'],
+//			['role' => 'White Hat'],
+//			['role' => 'Blue Hat'],
+//			['role' => 'Yellow Hat']
+//		]);
 		
     }
 }
