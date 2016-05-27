@@ -19,7 +19,7 @@
 
 @section('content')
 <div class="panel panel-default">
-    <h3>{{ $org->name }}</h3>
+    <h3 class="pad-left-20">{{ $org->name }}</h3>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3 text-right">Address:</div> 

@@ -52,7 +52,8 @@
 
 		</div>
 
-		{!! Form::submit('Submit', $attributes = ['class' => 'btn btn-primary']) !!} 
+		{!! Form::submit('Save Changes', $attributes = ['class' => 'btn btn-primary btn-15rem']) !!} 
+		<a class="btn btn-warning btn-15rem" href="{{ URL::previous() }}">Cancel</a>
 
 		{!! Form::close() !!}
 	</div>

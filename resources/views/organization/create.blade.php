@@ -51,7 +51,8 @@
 			$attributes = ['class' => 'form-control', 'name' => 'alt_phone', 'size' => 12]) !!}
 		</div>
 
-		{!! Form::submit('Submit', $attributes = ['class' => 'btn btn-primary']) !!}
+		{!! Form::submit('Save', $attributes = ['class' => 'btn btn-primary btn-10rem']) !!}
+		<a class="btn btn-warning btn-10rem" href="{{ URL::previous() }}">Cancel</a>
 
 		{!! Form::close() !!}
 	</div>
