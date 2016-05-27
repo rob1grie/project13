@@ -40,6 +40,7 @@
 			$value=$org->zipcode, 
 			$attributes = ['class' => 'form-control', 'name' => 'zipcode', 'size' => 12]) !!}
 
+			
 			{!! Form::label('main_phone', 'Phone (Main)') !!}
 			{!! Form::text('main_phone',
 			$value=$org->main_phone,

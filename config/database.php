@@ -27,6 +27,11 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'sqlite'),
+	
+	/*
+	 *  Database directory
+	 */
+	'database_dir' => '../storage/databases/',
 
     /*
     |--------------------------------------------------------------------------

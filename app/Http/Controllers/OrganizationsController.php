@@ -37,7 +37,7 @@ class OrganizationsController extends Controller
      */
     public function store(Request $request)
     {
-		// TODO Need to generate the database file name
+		// Initialize database_file to blank
         $database_file = '';
 		
 		$org = new Organization();
@@ -51,6 +51,10 @@ class OrganizationsController extends Controller
 		$org->main_phone = $request->input('main_phone');
 		$org->alt_phone = $request->input('alt_phone');
 		$org->database_file = $database_file;
+		$org->save();
+		
+		// Get new id, create database_file and save updated record
+		$database_file = 'data' . $org->id . '.sqlite';
 		$org->save();
 		
 		return \Redirect::route('organizations.show', compact('org'))->with('message', 'Organization Added');
@@ -89,9 +93,7 @@ class OrganizationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-		// TODO Need to generate the database file name
-        $database_file = '';
-		
+		// database_file was set when the Organization was created, and won't change
 		$org = Organization::find($id);
 		
 		$org->name = $request->input('name');
@@ -102,7 +104,6 @@ class OrganizationsController extends Controller
 		$org->zipcode = $request->input('zipcode');
 		$org->main_phone = $request->input('main_phone');
 		$org->alt_phone = $request->input('alt_phone');
-		$org->database_file = $database_file;
 		$org->save();
 		
 		return \Redirect::route('organizations.show', compact('org'))->with('message', 'Organization Updated');
