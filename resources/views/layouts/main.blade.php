@@ -33,6 +33,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="/">Home</a></li>
 						<li><a href="/organizations/">Organizations</a></li>
+						<li><a href="/users/">Users</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
