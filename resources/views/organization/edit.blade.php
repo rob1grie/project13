@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Add Organization')
+@section('title', 'Edit Organization')
 
 @section('content')
 <div class="panel panel-default">

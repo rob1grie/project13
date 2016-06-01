@@ -1,58 +1,39 @@
 @extends('layouts.main')
 
-@section('title', 'Add Organization')
+@section('title', 'Edit User')
 
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Edit Organization</h3>
+		<h3 class="panel-title">Edit User</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('action' => ['OrganizationsController@update', $org->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('action' => ['UsersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
-			{!! Form::label('name', 'Name') !!}
-			{!! Form::text('name', $value=$org->name, $attributes = ['class' => 'form-control', 'name' => 'name']) !!}
+			{!! Form::label('first_name', 'First Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('first_name', $value=$user->first_name, $attributes = ['class' => 'form-control', 'name' => 'first_name']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('address1', 'Address') !!}
-			{!! Form::text('address1', $value=$org->address1, $attributes = ['class' => 'form-control', 'name' => 'address1']) !!}
+			{!! Form::label('last_name', 'Last Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('last_name', $value=$user->first_name, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('address2', '') !!}
-			{!! Form::text('address2', $value=$org->address2, $attributes = ['class' => 'form-control', 'name' => 'address2']) !!}
+			{!! Form::label('email', 'Email', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('email', $value=$user->email, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
 		</div>
 
 		<div class="form-group form-inline">
-			{!! Form::label('city', 'City') !!}
-			{!! Form::text('city', 
-			$value=$org->city, 
-			$attributes = ['class' => 'form-control', 'name' => 'city', 'size' => 30]) !!}
-
-			{!! Form::label('state', 'State') !!}
-			{!! Form::text('state', 
-			$value=$org->state, 
-			$attributes = ['class' => 'form-control', 'name' => 'state', 'size' => 4]) !!}
-
-			{!! Form::label('zipcode', 'Zip Code') !!}
-			{!! Form::text('zipcode', 
-			$value=$org->zipcode, 
-			$attributes = ['class' => 'form-control', 'name' => 'zipcode', 'size' => 12]) !!}
-
-			
-			{!! Form::label('main_phone', 'Phone (Main)') !!}
-			{!! Form::text('main_phone',
-			$value=$org->main_phone,
-			$attributes = ['class' => 'form-control', 'name' => 'main_phone', 'size' => 12]) !!}
-
-			{!! Form::label('alt_phone', 'Phone (Alternate)') !!}
-			{!! Form::text('alt_phone',
-			$value=$org->alt_phone,
-			$attributes = ['class' => 'form-control', 'name' => 'alt_phone', 'size' => 12]) !!}
-
+			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{{ Form::select('role', $roles, $user->role_id) }}
 		</div>
 
+		<div class="form-group form-inline">
+			{!! Form::label('organization', 'Organization', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{{ Form::select('organization', $organizations, $user->organization_id) }}
+		</div>
+		
 		{!! Form::submit('Save Changes', $attributes = ['class' => 'btn btn-primary btn-15rem']) !!} 
 		<a class="btn btn-warning btn-15rem" href="{{ URL::previous() }}">Cancel</a>
 

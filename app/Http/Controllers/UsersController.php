@@ -1,7 +1,6 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use DB;
 use App\User;
@@ -63,7 +62,8 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		//
+		$user = User::find($id);
+		return view('user/show', compact('user'));
 	}
 
 	/**

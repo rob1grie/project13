@@ -22,18 +22,15 @@
     <h3 class="pad-left-20">{{ $user->first_name }} {{ $user->last_name }}</h3>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-3 text-right">Address:</div> 
-            <div class="col-md-9">{{ $org->address1 }}</div>
-            @if($org->address2)
-            <div class="col-md-3">&nbsp;</div> 
-            <div class="col-md-9">{{ $org->address2 }}</div>
-            @endif
-            <div class="col-md-3">&nbsp;</div> 
-            <div class="col-md-9">{{ $org->city }}, {{ $org->state }} {{ $org->zipcode }}</div>
-            <div class="col-md-3 text-right">Phone (main):</div>
-            <div class="col-md-9">{{ $org->main_phone }}&nbsp;</div>
-            <div class="col-md-3 text-right">Phone (alternate):</div>
-            <div class="col-md-9">{{ $org->alt_phone }}&nbsp;</div>
+            <div class="col-md-2 control-label">Username</div> 
+            <div class="col-md-9">{{ $user->username }}</div>
+			<div class="col-md-2 control-label">Email</div>
+            <div class="col-md-9">{{ $user->email }}</div>
+			
+            <div class="col-md-2 control-label">Role</div>
+            <div class="col-md-9">{{ $user->role->role }}&nbsp;</div>
+            <div class="col-md-2 control-label">Organization</div>
+            <div class="col-md-9">{{ $user->organization->name }}&nbsp;</div>
         </div>
     </div>
 </div>
