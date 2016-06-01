@@ -27,8 +27,10 @@ class UsersController extends Controller {
 	 */
 	public function create() {
 		$roles = Role::lists('role', 'id');
+		$roles->prepend('[Select user role]', 0);
 
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
+		$organizations->prepend('[Select user\'s organization]', 0);
 
 		return view('user/create', compact('roles', 'organizations'));
 	}

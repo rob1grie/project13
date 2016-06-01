@@ -11,34 +11,34 @@
 		{!! Form::open(array('action' => 'UsersController@store', 'enctype' => 'multipart/form-data')) !!}
 
 		<div class="form-group form-inline">
-			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-sm-2 control-label']) !!}
+			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('username', $value=null, $attributes = ['class' => 'form-control', 'name' => 'username']) !!}
 		</div>
 
 		<div class="form-group form-inline">
-			{!! Form::label('first_name', 'First Name', $attributes = ['class' => 'col-sm-2 control-label']) !!}
+			{!! Form::label('first_name', 'First Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('first_name', $value=null, $attributes = ['class' => 'form-control', 'name' => 'first_name']) !!}
 		</div>
 		<div class="form-group form-inline">
-			{!! Form::label('last_name', 'Last Name', $attributes = ['class' => 'col-sm-2 control-label']) !!}
+			{!! Form::label('last_name', 'Last Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('last_name', $value=null, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
 		</div>
 
 		<div class="form-group form-inline">
-			{!! Form::label('email', 'Email', $attributes = ['class' => 'col-sm-2 control-label']) !!}
+			{!! Form::label('email', 'Email', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('email', $value=null, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
 		</div>
 
 		<!--TODO Initial temporary password will be random and emailed to the user for them to reset-->
 
 		<div class="form-group form-inline">
-			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-sm-2 control-label']) !!}
-			{{ Form::select('role', $roles, '3') }}
+			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{{ Form::select('role', $roles) }}
 		</div>
 
 		<div class="form-group form-inline">
-			{!! Form::label('organization', 'Organization', $attributes = ['class' => 'col-sm-2 control-label']) !!}
-			{{ Form::select('organization', $organizations, '1') }}
+			{!! Form::label('organization', 'Organization', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{{ Form::select('organization', $organizations) }}
 		</div>
 		
 		{!! Form::hidden('password', 'password') !!}

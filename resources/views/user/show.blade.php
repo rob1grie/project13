@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Organization Detail')
+@section('title', 'User Detail')
 
 @section('sidebar')
 <div class="panel panel-primary">
@@ -10,16 +10,16 @@
         </h3>
     </div>
     <div class="list-group">
-        <a class="list-group-item" href="create">Add Organization</a>
-        <a class="list-group-item" href="{{ $org->id }}/edit">Edit Organization</a>
-        <a class="list-group-item" href="/organizations/">Return to List</a>
+        <a class="list-group-item" href="create">Add User</a>
+        <a class="list-group-item" href="{{ $user->id }}/edit">Edit User</a>
+        <a class="list-group-item" href="/users/">Return to List</a>
     </div>
 </div>
 @stop 
 
 @section('content')
 <div class="panel panel-default">
-    <h3 class="pad-left-20">{{ $org->name }}</h3>
+    <h3 class="pad-left-20">{{ $user->first_name }} {{ $user->last_name }}</h3>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-3 text-right">Address:</div> 

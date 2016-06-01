@@ -21,7 +21,7 @@
     <thead>
         <tr>
             <th>Name</th>
-			<th>Role </th>
+			<th>Role</th>
             <th>Organization</th>
         </tr>
     </thead>
