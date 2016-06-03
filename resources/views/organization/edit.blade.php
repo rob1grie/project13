@@ -10,17 +10,17 @@
 	<div class="panel-body">
 		{!! Form::open(array('action' => ['OrganizationsController@update', $org->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
-			{!! Form::label('name', 'Name') !!}
+			{!! Form::label('name', 'Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('name', $value=$org->name, $attributes = ['class' => 'form-control', 'name' => 'name']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('address1', 'Address') !!}
+			{!! Form::label('address1', 'Address', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('address1', $value=$org->address1, $attributes = ['class' => 'form-control', 'name' => 'address1']) !!}
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('address2', '') !!}
+			{!! Form::label('address2', 'Address (2)', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('address2', $value=$org->address2, $attributes = ['class' => 'form-control', 'name' => 'address2']) !!}
 		</div>
 
@@ -39,14 +39,17 @@
 			{!! Form::text('zipcode', 
 			$value=$org->zipcode, 
 			$attributes = ['class' => 'form-control', 'name' => 'zipcode', 'size' => 12]) !!}
+		</div>
 
-			
-			{!! Form::label('main_phone', 'Phone (Main)') !!}
+		<div class="form-group form-inline">
+			{!! Form::label('main_phone', 'Phone (Main)', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('main_phone',
 			$value=$org->main_phone,
 			$attributes = ['class' => 'form-control', 'name' => 'main_phone', 'size' => 12]) !!}
+		</div>
 
-			{!! Form::label('alt_phone', 'Phone (Alternate)') !!}
+		<div class="form-group form-inline">
+			{!! Form::label('alt_phone', 'Phone (Alternate)', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('alt_phone',
 			$value=$org->alt_phone,
 			$attributes = ['class' => 'form-control', 'name' => 'alt_phone', 'size' => 12]) !!}

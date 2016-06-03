@@ -73,7 +73,14 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id) {
-		//
+		$roles = Role::lists('role', 'id');
+		$roles->prepend('[Select user role]', 0);
+
+		$organizations = Organization::lists('name', 'id')->sortBy('name');
+		$organizations->prepend('[Select user\'s organization]', 0);
+
+		$user = User::find($id);
+		return view('user/edit', compact('user', 'roles', 'organizations'));
 	}
 
 	/**
@@ -84,7 +91,18 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function update(Request $request, $id) {
-		//
+		
+		$user = User::find($id);
+		
+		$user->username = $request->input('username');
+		$user->first_name = $request->input('first_name');
+		$user->last_name = $request->input('last_name');
+		$user->email = $request->input('email');
+		$user->role_id = $request->input('role');
+		$user->organization_id = $request->input('organization');
+		$user->save();
+
+		return \Redirect::route('users.show', compact('user'))->with('message', 'User Updated');
 	}
 
 	/**

@@ -10,13 +10,18 @@
 	<div class="panel-body">
 		{!! Form::open(array('action' => ['UsersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
+			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('username', $value=$user->username, $attributes = ['class' => 'form-control', 'name' => 'username']) !!}
+		</div>
+
+		<div class="form-group">
 			{!! Form::label('first_name', 'First Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('first_name', $value=$user->first_name, $attributes = ['class' => 'form-control', 'name' => 'first_name']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('last_name', 'Last Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('last_name', $value=$user->first_name, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
+			{!! Form::text('last_name', $value=$user->last_name, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
 		</div>
 
 		<div class="form-group">
