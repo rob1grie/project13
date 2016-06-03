@@ -94,7 +94,6 @@ class UsersController extends Controller {
 		
 		$user = User::find($id);
 		
-		$user->username = $request->input('username');
 		$user->first_name = $request->input('first_name');
 		$user->last_name = $request->input('last_name');
 		$user->email = $request->input('email');

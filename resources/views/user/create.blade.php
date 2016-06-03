@@ -3,9 +3,7 @@
 @section('title', 'Add User')
 
 <?php
-$settings = new App\Setting();
-
-$username = 'p13m' . $settings->getNextId();
+$username = 'p13man-' . \App\Settings::getNextId();
 ?>
 
 @section('content')
