@@ -21,6 +21,7 @@
     <thead>
         <tr>
             <th>Name</th>
+			<th>Username</th>
 			<th>Role</th>
             <th>Organization</th>
         </tr>
@@ -29,6 +30,7 @@
         @foreach($users as $user)
         <tr>
             <td><a href='/users/{{ $user->id }}'>{{ $user->last_name}}, {{ $user->first_name }}</a></td>
+			<td>{{ $user->username }}</td>
 			<td>{{ $user->role->role }}</td>
 			<td>{{ $user->organization->name }}, {{ $user->organization->city }}, {{ $user->organization->state }}</td>
         </tr>

@@ -2,6 +2,12 @@
 
 @section('title', 'Add User')
 
+<?php
+$settings = new App\Setting();
+
+$username = 'p13m' . $settings->getNextId();
+?>
+
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
@@ -12,7 +18,8 @@
 
 		<div class="form-group form-inline">
 			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('username', $value=null, $attributes = ['class' => 'form-control', 'name' => 'username']) !!}
+			{!! Form::text('username', $value= $username, 
+				$attributes = ['class' => 'form-control', 'name' => 'username', 'readonly' => 'readonly']) !!}
 		</div>
 
 		<div class="form-group form-inline">
