@@ -11,14 +11,15 @@ class Settings extends Model
 	protected $hidden = [];
 	
 	public static function getNextId() {
-		$nextId = 1;
-		
-		if (\Setting::has('next_id')) {
-			$nextId = \Setting::get('next_id');
+		if (!($setting = Settings::find(1))) {
+			$setting = new Settings;
 		}
 		
-		\Setting::set('next_id', $nextId + 1);
+		++$setting->next_user_id;
+
+		$setting->save();
 		
+		return $setting->next_user_id;
 	}
 
 }

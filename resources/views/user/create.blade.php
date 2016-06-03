@@ -2,10 +2,6 @@
 
 @section('title', 'Add User')
 
-<?php
-$username = 'p13man-' . \App\Settings::getNextId();
-?>
-
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
