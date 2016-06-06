@@ -11,7 +11,7 @@
 		{!! Form::open(array('action' => ['UsersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
 			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('username', $value=$user->username, $attributes = ['class' => 'form-control', 'name' => 'username']) !!}
+			{!! Form::text('username', $value=$user->username, $attributes = ['class' => 'form-control', 'name' => 'username', 'disabled']) !!}
 		</div>
 
 		<div class="form-group">

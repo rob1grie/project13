@@ -37,6 +37,6 @@ class User extends Authenticatable
 		$userId = 0;
 		preg_match_all('!\d+!', $this->username, $userId);
 		
-		return $userId;
+		return $userId[0][1];
 	}
 }
