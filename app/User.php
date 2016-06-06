@@ -31,4 +31,12 @@ class User extends Authenticatable
 	public function organization() {
 		return $this->belongsTo('App\Organization');
 	}
+	
+	public function getUserId() {
+		// Returns the numeric portion of the username
+		$userId = 0;
+		preg_match_all('!\d+!', $this->username, $userId);
+		
+		return $userId;
+	}
 }

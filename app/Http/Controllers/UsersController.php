@@ -52,7 +52,9 @@ class UsersController extends Controller {
 		$user->email = $request->input('email');
 		$user->role_id = $request->input('role');
 		$user->organization_id = $request->input('organization');
-		$user->save();
+		if ($user->save()) {
+			\App\Settings::setNextId($user->getUserId());
+		}
 
 		return \Redirect::route('users.index')->with('message', 'User Added');
 	}

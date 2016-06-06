@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+{{ $user->getUserId() }}
 @section('title', 'User Detail')
 
 @section('sidebar')
