@@ -34,6 +34,7 @@
 						<li><a href="/">Home</a></li>
 						<li><a href="/organizations/">Organizations</a></li>
 						<li><a href="/users/">Users</a></li>
+						<li><a href="/project13s">Project13s</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::resource('organizations', 'OrganizationsController');
 
 Route::resource('users', 'UsersController');
+
+Route::resource('project13s', 'Project13sController');
