@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Organization;
+use App\State;
 
 class OrganizationsController extends Controller
 {
@@ -26,7 +27,9 @@ class OrganizationsController extends Controller
      */
     public function create()
     {
-        return view('organization/create');
+		$states = State::lists('abbreviation', 'abbreviation');
+		
+        return view('organization/create', compact('states'));
     }
 
     /**
@@ -72,8 +75,10 @@ class OrganizationsController extends Controller
      */
     public function edit($id)
     {
+		$states = State::lists('abbreviation', 'abbreviation');
+		
         $org = Organization::find($id);
-		return view('organization/edit', compact('org'));
+		return view('organization/edit', compact('org', 'states'));
     }
 
     /**

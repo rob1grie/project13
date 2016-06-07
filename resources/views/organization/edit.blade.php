@@ -31,9 +31,7 @@
 			$attributes = ['class' => 'form-control', 'name' => 'city', 'size' => 30]) !!}
 
 			{!! Form::label('state', 'State') !!}
-			{!! Form::text('state', 
-			$value=$org->state, 
-			$attributes = ['class' => 'form-control', 'name' => 'state', 'size' => 4]) !!}
+			{{ Form::select('state', $states, $org->state) }}
 
 			{!! Form::label('zipcode', 'Zip Code') !!}
 			{!! Form::text('zipcode', 
