@@ -83,5 +83,12 @@ class Project13sController extends Controller {
 	public function destroy($id) {
 		//
 	}
+	
+	public function addOrgProject13($id) {
+		
+		$organization = Organization::find($id);
+		
+		return view('project13/create', compact('organization'));
+	}
 
 }

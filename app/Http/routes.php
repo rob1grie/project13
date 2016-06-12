@@ -19,4 +19,5 @@ Route::resource('organizations', 'OrganizationsController');
 
 Route::resource('users', 'UsersController');
 
+Route::get('project13s/{org_id}/addp13', 'Project13sController@addOrgProject13');
 Route::resource('project13s', 'Project13sController');

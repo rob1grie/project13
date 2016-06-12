@@ -1,4 +1,4 @@
-@extends('layouts.main')
+	@extends('layouts.main')
 
 @section('title', 'Add Project13')
 
@@ -9,15 +9,20 @@
 	</div>
 	<div class="panel-body">
 		{!! Form::open(array('action' => 'Project13sController@store', 'enctype' => 'multipart/form-data')) !!}
+		@if (is_null($organization))
 		<div class="form-group">
 			{!! Form::label('organization', 'Select Organization: ') !!}
 			{{ Form::select('organization', $organizations) }}
 		</div>
-
 		<div class="form-group">
 			{!! Form::label('org_admin', 'Select Organization\'s Administrator: ') !!}
 			{{ Form::select('org_admin', $users) }}
 		</div>
+		@else
+		<div class="form-group">
+			<h3>for {{ $organization->name }}</h3>
+		</div>
+		@endif
 
 		{!! Form::submit('Save', $attributes = ['class' => 'btn btn-primary btn-10rem']) !!}
 		<a class="btn btn-warning btn-10rem" href="{{ URL::previous() }}">Cancel</a>
