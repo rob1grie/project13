@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'first_name', 'last_name', 'role_id', 'phone',
+        'username', 'email', 'password', 'first_name', 'last_name', 'role_id', 'phone', 'organization_id',
     ];
 	
     /**
@@ -30,6 +30,10 @@ class User extends Authenticatable
 	
 	public function organization() {
 		return $this->belongsTo('App\Organization');
+	}
+	
+	public function project13() {
+		return $this->belongsTo('App\Project13');
 	}
 	
 	public function getUserId() {

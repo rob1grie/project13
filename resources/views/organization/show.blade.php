@@ -38,4 +38,41 @@
         </div>
     </div>
 </div>
+<div class="panel panel-default">
+	<h4 class="pad-left-20">Project 13s</h4>
+	<div class="panel-body">
+		<div class="row">
+			<table>
+				@foreach($project13s as $project13)
+				<tr>
+					<td>Project13{{$project13->ordinal_id}}</td>
+				</tr>
+				@endforeach
+			</table>
+		</div>
+	</div>
+</div>
+<div class="panel panel-default">
+	<h4 class="pad-left-20">Members</h4>
+	<div class="panel-body">
+		<div class="row">
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th class="center-text">Role</th>
+						<th class="center-text">Project 13</th>
+					</tr>
+				</thead>
+				@foreach($users as $user)
+				<tr>
+					<td>{{$user->last_name}}, {{$user->first_name}}</td>
+					<td class="center-text">{{$user->role->role}}</td>
+					<td class="center-text">{{$user->project13}}</td>
+				</tr>
+				@endforeach
+			</table>
+		</div>
+	</div>
+</div>
 @stop

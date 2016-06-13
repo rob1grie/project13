@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Organization;
 use App\State;
+use App\User;
 
 class OrganizationsController extends Controller
 {
@@ -63,8 +64,11 @@ class OrganizationsController extends Controller
      */
     public function show($id)
     {
+		// Show Organization details, along with list of users / Project 13s
         $org = Organization::find($id);
-        return view('organization/show', compact('org'));
+		$users = $org->users;
+		$project13s = $org->project13s;
+        return view('organization/show', compact('org', 'users', 'project13s'));
     }
 
     /**

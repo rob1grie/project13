@@ -15,4 +15,8 @@ class Project13 extends Model {
 		return $this->hasOne('App\User', 'org_admin_id');
 	}
 	
+	public function users() {
+		return $this->hasMany('App\User');
+	}
+	
 }

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 //			['role' => 'Blue Hat'],
 //			['role' => 'Yellow Hat']
 //		]);
-		
+//		$this->call(OrganizationsTableSeeder::class);
+//		$this->call(UsersTableSeeder::class);
     }
 }
