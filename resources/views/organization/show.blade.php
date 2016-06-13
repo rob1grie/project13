@@ -56,7 +56,7 @@
 	<h4 class="pad-left-20">Members</h4>
 	<div class="panel-body">
 		<div class="row">
-			<table class="table table-hover table-bordered">
+			<table class="table table-hover table-bordered" >
 				<thead>
 					<tr>
 						<th>Name</th>

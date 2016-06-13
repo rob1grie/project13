@@ -87,8 +87,9 @@ class Project13sController extends Controller {
 	public function addOrgProject13($id) {
 		
 		$organization = Organization::find($id);
+		$users = $organization->users;
 		
-		return view('project13/create', compact('organization'));
+		return view('project13/create', compact('organization', 'users'));
 	}
 
 }
