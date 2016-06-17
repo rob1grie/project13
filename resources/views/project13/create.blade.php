@@ -29,7 +29,7 @@ Form::macro('DBSelect', function($fieldName, $collection, $options=array('id' =>
 		</div>
 		@else
 		<div class="form-group">
-			<h3>for {{ $organization->name }}</h3>
+			<h3>for {{ $organization->name }} </h3>
 		</div>
 		@endif
 		
