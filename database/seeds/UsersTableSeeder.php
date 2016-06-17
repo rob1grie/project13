@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder {
 				$user->first_name = $faker->firstNameMale;
 				$user->last_name = $faker->lastName;
 				$user->phone = $faker->phoneNumber;
-				$user->role_id = 6;
+				$user->role_id = 0;
 				$user->organization_id = $j;
 				
 				$user->save();
