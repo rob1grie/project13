@@ -5,6 +5,7 @@ use App\Project13;
 use App\User;
 use App\Organization;
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 
 class Project13sController extends Controller {
 
@@ -26,10 +27,10 @@ class Project13sController extends Controller {
 	public function create() {
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
 		$organizations->prepend('[Select]', 0);
-		
+
 		$users = User::lists('last_name', 'id');
 		$users->prepend('[Select]', 0);
-		
+
 		return view('project13/create', compact('organizations', 'users'));
 	}
 
@@ -83,13 +84,28 @@ class Project13sController extends Controller {
 	public function destroy($id) {
 		//
 	}
-	
+
 	public function addOrgProject13($id) {
-		
+
 		$organization = Organization::find($id);
-		$users = $organization->users;
-		
+		$users = User::select(DB::raw('concat(last_name, \', \', first_name) as name, id'))
+				->where('organization_id', '=', $id)
+				->where('project13_id', '=', NULL)
+				->orderBy('name', 'asc')
+				->get();
+		$users = Project13sController::buildUsersSelect($users);
+
 		return view('project13/create', compact('organization', 'users'));
+	}
+
+	protected function buildUsersSelect($users) {
+		// Build an array of name, id elements
+		$array = array();
+		$array[0] = '[Select]';
+		foreach ($users as $user) {
+			$array[$user->id] = $user->name;
+		}
+		return $array;
 	}
 
 }

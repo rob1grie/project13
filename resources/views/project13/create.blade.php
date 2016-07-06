@@ -1,12 +1,3 @@
-<?php
-Form::macro('DBSelect', function($fieldName, $collection, $options=array('id' => 'name')){
-  $key = key($options);
-  $rows = $collection->lists( $options[ $key ], $key );
-
-  return Form::select($fieldName, $rows);
-});
-?>
-
 @extends('layouts.main')
 
 @section('title', 'Add Project13')
@@ -18,7 +9,7 @@ Form::macro('DBSelect', function($fieldName, $collection, $options=array('id' =>
 	</div>
 	<div class="panel-body">
 		{!! Form::open(array('action' => 'Project13sController@store', 'enctype' => 'multipart/form-data')) !!}
-		@if (is_null($organization))
+		@if (!@is_null($organizations))
 		<div class="form-group">
 			{!! Form::label('organization', 'Select Organization: ') !!}
 			{{ Form::select('organization', $organizations) }}
@@ -43,7 +34,7 @@ Form::macro('DBSelect', function($fieldName, $collection, $options=array('id' =>
 					<tr>
 						<td>White Hat</td>
 						<td>
-							{!! Form::DBSelect('white_hat', $users) !!}
+							{!! Form::select('white_hat', $users) !!}
 						</td>
 					</tr>
 					<tr>
