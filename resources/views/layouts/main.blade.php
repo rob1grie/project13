@@ -19,7 +19,7 @@
 
 	</head>
 
-	<body>
+	@yield('bodytag')
 
 		<nav class="navbar navbar-inverse">
 			<div class="container">

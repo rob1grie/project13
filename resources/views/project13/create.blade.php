@@ -1,10 +1,19 @@
-@section('script')
-
-@stop
-
 @extends('layouts.main')
 
+@if (isset($organization))
+$onload = "<body onload=\"loadUsersForOrganization(" . $organization->id . ")\">)";
+@else
+$onload = "<body onload=\"loadAllUsers()\""";
+@endif
+
+@section('script')
+<script type="text/javascript" src="/js/ajaxJS.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+@stop
+
 @section('title', 'Add Project13')
+
+@section('bodytag', {{ $onload }})
 
 @section('content')
 <div class="panel panel-default">
@@ -20,7 +29,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('org_admin', 'Select Organization\'s Administrator: ') !!}
-			{{ Form::select('org_admin', $users) }}
+			{{ Form::select('org_admin') }}
 		</div>
 		@else
 		<div class="form-group">
@@ -38,79 +47,79 @@
 					<tr>
 						<td>White Hat</td>
 						<td>
-							{!! Form::select('white_hat', $users) !!}
+							{!! Form::select('white_hat') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">Blue Hat 1</td>
 						<td>
-							{!! Form::select('blue_hat_1', $users) !!}
+							{!! Form::select('blue_hat_1') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 1</td>
 						<td>
-							{!! Form::select('yellow_hat_1-1', $users) !!}
+							{!! Form::select('yellow_hat_1-1') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 2</td>
 						<td>
-							{!! Form::select('yellow_hat_1-2', $users) !!}
+							{!! Form::select('yellow_hat_1-2') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 3</td>
 						<td>
-							{!! Form::select('yellow_hat_1-3', $users) !!}
+							{!! Form::select('yellow_hat_1-3') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">Blue Hat 2</td>
 						<td>
-							{!! Form::select('blue_hat_2', $users) !!}
+							{!! Form::select('blue_hat_2') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 1</td>
 						<td>
-							{!! Form::select('yellow_hat_2-1', $users) !!}
+							{!! Form::select('yellow_hat_2-1') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 2</td>
 						<td>
-							{!! Form::select('yellow_hat_2-2', $users) !!}
+							{!! Form::select('yellow_hat_2-2') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 3</td>
 						<td>
-							{!! Form::select('yellow_hat_2-3', $users) !!}
+							{!! Form::select('yellow_hat_2-3') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">Blue Hat 3</td>
 						<td>
-							{!! Form::select('blue_hat_3', $users) !!}
+							{!! Form::select('blue_hat_3') !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">Yellow Hat 1</td>
 						<td>
-							{!! Form::select('yellow_hat_3-1', $users) !!}
+							{!! Form::select('yellow_hat_3-1') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 1</td>
+						<td class="pad-left-20">Yellow Hat 2</td>
 						<td>
-							{!! Form::select('yellow_hat_3-2', $users) !!}
+							{!! Form::select('yellow_hat_3-2') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 1</td>
+						<td class="pad-left-20">Yellow Hat 3</td>
 						<td>
-							{!! Form::select('yellow_hat_3-3', $users) !!}
+							{!! Form::select('yellow_hat_3-3') !!}
 						</td>
 					</tr>
 				</thead>
