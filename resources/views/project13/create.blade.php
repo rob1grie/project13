@@ -1,19 +1,25 @@
 @extends('layouts.main')
 
-@if (isset($organization))
-$onload = "<body onload=\"loadUsersForOrganization(" . $organization->id . ")\">)";
-@else
-$onload = "<body onload=\"loadAllUsers()\""";
-@endif
-
 @section('script')
 <script type="text/javascript" src="/js/ajaxJS.js"></script>
 <script type="text/javascript" src="/js/json2.js"></script>
+@if (isset($organization))
+<script>
+var orgid = <?php echo $organization->id; ?>;
+function process() {
+	loadUsersForOrganization(<?php echo $organization->id; ?>);
+}
+</script>
+@else
+<script>
+function process() {
+	loadAllUsers();
+}
+</script>
+@endif
 @stop
 
 @section('title', 'Add Project13')
-
-@section('bodytag', {{ $onload }})
 
 @section('content')
 <div class="panel panel-default">
@@ -36,7 +42,7 @@ $onload = "<body onload=\"loadAllUsers()\""";
 			<h3>for {{ $organization->name }} </h3>
 		</div>
 		@endif
-		
+		<div id="testcontent" />
 		<div>
 			<table>
 				<thead>

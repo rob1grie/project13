@@ -1,6 +1,6 @@
 /* global xmlHttp, e */
 
-var xmlhttp = getXmlHttp();
+var xmlHttp = getXmlHttp();
 
 function getXmlHttp() {
 	// will store the reference to the XMLHttpRequest object
@@ -38,7 +38,7 @@ function loadUsersForOrganization(orgID)
 		try
 		{
 			// initiate reading a file from the server
-			xmlHttp.open("GET", "/php/get-org-users.php?orgID=" . orgID, true);
+			xmlHttp.open("GET", "/php/getorgusers.php?orgID=" . orgID, true);
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
 		}
@@ -47,6 +47,8 @@ function loadUsersForOrganization(orgID)
 		{
 			alert("Can't connect to server:\n" + e.toString());
 		}
+	} else {
+		alert("No xmlHTTP available");
 	}
 }
 
@@ -106,16 +108,9 @@ function handleServerResponse()
 {
 	// read the message from the server
 	responseJSON = JSON.parse(xmlHttp.responseText);
-	// generate HTML output
-	var html = "";
-	// iterate through the arrays and create an HTML structure
-	for (var i = 0; i < responseJSON.books.length; i++)
-		html += responseJSON.books[i].title +
-				", " + responseJSON.books[i].isbn + "<br/>";
-	// obtain a reference to the <div> element on the page
-	myDiv = document.getElementById("myDivElement");
-	// display the HTML output
-	myDiv.innerHTML = "<p>Server says: </p>" + html;
+	myDiv = document.getElementById("testcontent");
+	myDiv.innerHTML = responseJSON;
+
 }
 
 

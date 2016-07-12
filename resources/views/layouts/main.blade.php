@@ -16,10 +16,10 @@
 		
 		<!--  Custom javascript -->
 		@yield('script')
-
+		
 	</head>
 
-	@yield('bodytag')
+	<body onload="process()">
 
 		<nav class="navbar navbar-inverse">
 			<div class="container">
