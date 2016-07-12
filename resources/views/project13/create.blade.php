@@ -1,3 +1,7 @@
+@section('script')
+
+@stop
+
 @extends('layouts.main')
 
 @section('title', 'Add Project13')

@@ -28,10 +28,7 @@ class Project13sController extends Controller {
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
 		$organizations->prepend('[Select]', 0);
 
-		$users = User::lists('last_name', 'id');
-		$users->prepend('[Select]', 0);
-
-		return view('project13/create', compact('organizations', 'users'));
+		return view('project13/create', compact('organizations'));
 	}
 
 	/**
