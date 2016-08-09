@@ -92,7 +92,7 @@ class Project13sController extends Controller {
 				->get();
 		$users = Project13sController::buildUsersSelect($users);
 
-		return view('project13/create', compact('organization', 'users'));
+		return view('organization/create-p13', compact('organization', 'users'));
 	}
 
 	protected function buildUsersSelect($users) {

@@ -4,8 +4,9 @@
 <script type="text/javascript" src="/js/ajaxJS.js"></script>
 <script type="text/javascript" src="/js/json2.js"></script>
 <script>
+var orgid = <?php echo $organization->id; ?>;
 function process() {
-	loadAllUsers();
+	loadUsersForOrganization(<?php echo $organization->id; ?>);
 }
 </script>
 @stop
@@ -20,12 +21,7 @@ function process() {
 	<div class="panel-body">
 		{!! Form::open(array('action' => 'Project13sController@store', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
-			{!! Form::label('organization', 'Select Organization: ') !!}
-			{{ Form::select('organization', $organizations) }}
-		</div>
-		<div class="form-group">
-			{!! Form::label('org_admin', 'Select Organization\'s Administrator: ') !!}
-			{{ Form::select('org_admin') }}
+			<h3>for {{ $organization->name }} </h3>
 		</div>
 		<div id="testcontent" />
 		<div>
