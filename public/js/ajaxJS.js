@@ -38,7 +38,7 @@ function loadUsersForOrganization(orgID)
 		try
 		{
 			// initiate reading a file from the server
-			xmlHttp.open("GET", "/php/getorgusers.php?orgID=" . orgID, true);
+			xmlHttp.open("GET", "/php/getorgusers.php?orgID="+orgID, true);
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
 		}
@@ -71,6 +71,8 @@ function loadAllUsers()
 		{
 			alert("Can't connect to server:\n" + e.toString());
 		}
+	} else {
+		alert("No xmlHTTP available");
 	}
 }
 
@@ -78,38 +80,31 @@ function loadAllUsers()
 function handleRequestStateChange()
 {
 	// when readyState is 4, we can read the server response
-	if (xmlHttp.readyState === 4)
+	console.log("readyState: " + xmlHttp.readyState + "; status: " + xmlHttp.status);
+	if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
 	{
-		// continue only if HTTP status is "OK"
-		if (xmlHttp.status === 200)
+		try
 		{
-			try
-			{
-				// do something with the response from the server
-				handleServerResponse();
-			}
-			catch (e)
-			{
-				// display error message
-				alert("Error reading the response: " + e.toString());
-			}
+			// do something with the response from the server
+			handleServerResponse();
 		}
-		else
+		catch (e)
 		{
-			// display status message
-			alert("There was a problem retrieving the data:\n" +
-					xmlHttp.statusText);
+			// display error message
+			alert("Error reading the response: " + e.toString());
 		}
 	}
 }
+
 
 // handles the response received from the server
 function handleServerResponse()
 {
 	// read the message from the server
-	responseJSON = JSON.parse(xmlHttp.responseText);
+//	responseJSON = JSON.parse(xmlHttp.responseText);
 	myDiv = document.getElementById("testcontent");
-	myDiv.innerHTML = responseJSON;
+	myDiv.innerHTML = xmlHttp.responseText;
+//	myDiv.innerHTML = responseJSON;
 
 }
 
