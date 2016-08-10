@@ -6,7 +6,7 @@
 <script>
 var orgid = <?php echo $organization->id; ?>;
 function process() {
-	loadUsersForOrganization(<?php echo $organization->id; ?>);
+	loadUsersForOrganization(<?php echo $organization->id . ', "' . app_path() . '"'; ?>);
 }
 </script>
 @stop

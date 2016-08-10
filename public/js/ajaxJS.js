@@ -29,7 +29,7 @@ function getXmlHttp() {
 }
 
 // get user data for an organization
-function loadUsersForOrganization(orgID)
+function loadUsersForOrganization(orgID, appPath)
 {
 	// only continue if xmlHttp isn't void
 	if (xmlHttp)
@@ -38,7 +38,8 @@ function loadUsersForOrganization(orgID)
 		try
 		{
 			// initiate reading a file from the server
-			xmlHttp.open("GET", "/php/getorgusers.php?orgID="+orgID, true);
+			xmlHttp.open("GET", "/../getorgusers.php?orgID="+orgID, true);
+	alert('test alert');
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
 		}
