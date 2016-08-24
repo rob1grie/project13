@@ -28,9 +28,6 @@ function process() {
 			{{ Form::select('org_admin') }}
 		</div>
 		<div id="testcontent"></div>
-		<div id="test2">
-			<?php var_dump($organizations); ?>
-		</div>
 		<div>
 			<table>
 				<thead>
