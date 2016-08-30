@@ -14,12 +14,9 @@
 		<!-- Custom styles for this template -->
 		<link href="/css/style.css" rel="stylesheet">
 		
-		<!--  Custom javascript -->
-		@yield('script')
-		
 	</head>
 
-	<body onload="process()">
+	<body>
 
 		<nav class="navbar navbar-inverse">
 			<div class="container">
@@ -62,7 +59,9 @@
 		</div><!-- /.container -->
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<!--  Custom javascript -->
+		@yield('script')
+		
 	</body>
 </html>

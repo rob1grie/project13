@@ -1,14 +1,5 @@
 @extends('layouts.main')
 
-@section('script')
-<script type="text/javascript" src="/js/ajaxJS.js"></script>
-<script type="text/javascript" src="/js/json2.js"></script>
-<script>
-function process() {
-	loadAllUsers();
-}
-</script>
-@stop
 
 @section('title', 'Add Project13')
 
@@ -23,11 +14,6 @@ function process() {
 			{!! Form::label('organization', 'Select Organization: ') !!}
 			{{ Form::select('organization', $organizations) }}
 		</div>
-		<div class="form-group">
-			{!! Form::label('org_admin', 'Select Organization\'s Administrator: ') !!}
-			{{ Form::select('org_admin') }}
-		</div>
-		<div id="testcontent"></div>
 		<div>
 			<table>
 				<thead>
@@ -36,79 +22,79 @@ function process() {
 						<th>Member Name</th>
 					</tr>
 					<tr>
-						<td>White Hat</td>
+						<td>{!! Form::label('white_hat', 'White Hat') !!}</td>
 						<td>
 							{!! Form::select('white_hat') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">Blue Hat 1</td>
+						<td class="pad-left-10">{!! Form::label('blue_hat_1', 'Blue Hat 1') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_1') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 1</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_1-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-1') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 2</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_1-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-2') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 3</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_1-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-3') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">Blue Hat 2</td>
+						<td class="pad-left-10">{!! Form::label('blue_hat_2', 'Blue Hat 2') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_2') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 1</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_2-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-1') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 2</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_2-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-2') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 3</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_2-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-3') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">Blue Hat 3</td>
+						<td class="pad-left-10">{!! Form::label('blue_hat_3', 'Blue Hat 3') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_3') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 1</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_3-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-1') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 2</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_3-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-2') !!}
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">Yellow Hat 3</td>
+						<td class="pad-left-20">{!! Form::label('yellow_hat_3-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-3') !!}
 						</td>
@@ -123,4 +109,21 @@ function process() {
 		{!! Form::close() !!}
 	</div>
 </div>
+@stop
+
+@section('script')
+<script>
+	$('#organization').on('change', function (e) {
+		console.log(e);
+		var org_id = e.target.value;
+
+		$.get('/org-users?org_id=' + org_id, function (data) {
+			$('#white_hat').empty();
+			$.each(data, function (index, user) {
+				$('#white_hat').append('<option value="' + user.id + '">' + user.last_name + '</option>');
+			});
+		});
+	});
+</script>
+
 @stop
