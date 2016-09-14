@@ -1,15 +1,15 @@
 var availItems = [];
 var usedItems = [];
-var selectControls = $('select');
+var selectControls = $("select[id!='organization']"); // $("a[target!='_blank']")
 
 $('#organization').on('change', function (e) {
-	fillSelectControls(e);
+	initSelectControls(e);
 });
 
-function fillSelectControls(e) {
+function initSelectControls(e) {
 	var control;
 	var org_id = e.target.value;
-
+	
 	$.get('/org-users?org_id=' + org_id, function (data) {
 		$.each(selectControls, function (index, controlId) {
 			if (controlId.name !== 'organization') {
@@ -23,6 +23,25 @@ function fillSelectControls(e) {
 		});
 	});
 
+}
+
+function updateAvailItems(data) {
+	if (availItems.length === 0) {
+		initAvailItems(data);
+	}
+	else {
+		
+	}
+	
+}
+
+function initAvailItems(data) {
+	// Ensure that availItems is empty
+	availItems = new Array();
+	
+	for (var i = 0; i< data.length; i++) {
+		availItems.push([data[i].id, data[i].name]);
+	}
 }
 
 	
