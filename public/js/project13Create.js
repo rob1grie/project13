@@ -1,3 +1,5 @@
+
+
 var availItems = [];
 var usedItems = [];
 var selectControls = $("select[id!='organization']"); // $("a[target!='_blank']")
@@ -18,8 +20,8 @@ function initSelectControls(e) {
 			control = $('#' + controlId.name);
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
-			$.each(availItems, function (index, user) {
-				control.append('<option value="' + user.id + '">' + user.last_name + ', ' + user.first_name + '</option>');
+			availItems.forEach(function(user){
+				control.append('<option value="' + user.id + '">' + user.name + '</option>');
 			});
 		});
 	});
@@ -38,11 +40,12 @@ function updateAvailItems(data) {
 
 function initAvailItems(data) {
 	// Ensure that availItems is empty
-	availItems = [];
-	newItem = [];
+	var newItem;
 	for (var i = 0; i < data.length; i++) {
-		newItem = [data[i].id, '"' + data[i].last_name + ', ' + data[i].first_name + '"'];
-		alert(newItem);
+		newItem = {
+			id: data[i].id, 
+			name: data[i].last_name + ', ' + data[i].first_name
+		};
 		availItems.push(newItem);
 	}
 }
