@@ -32,7 +32,7 @@ class Project13sController extends Controller {
 			}
 			return ($a > $b) ? 1 : -1;
 		});
-		$organizations->prepend('[Select]', 0);
+		$organizations->prepend('[Select the Organization]', 0);
 		
 		/*
 		 * $collection->sort(function ($a, $b) {
