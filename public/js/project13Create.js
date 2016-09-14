@@ -1,11 +1,17 @@
 
 
-var availItems = [];
-var usedItems = [];
-var selectControls = $("select[id!='organization']"); // $("a[target!='_blank']")
+var availUsers = [];
+var usedUsers = [];
+var selectControls = $("select[id!='organization']");
 
 $('#organization').on('change', function (e) {
+	// When organization changes, need to initialize the user selects
 	initSelectControls(e);
+});
+
+$("select[id!='organization']").on('change', function (e) {
+	// When any of the user selects changes, need to update availUsers and usedUsers
+	updateSelectControls(e);
 });
 
 function initSelectControls(e) {
@@ -13,24 +19,28 @@ function initSelectControls(e) {
 	var org_id = e.target.value;
 
 	$.get('/org-users?org_id=' + org_id, function (data) {
-
-		initAvailItems(data);
+		// Initialize availUsers array
+		initAvailUsers(data);
 
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
-			availItems.forEach(function(user){
+			availUsers.forEach(function (user) {
 				control.append('<option value="' + user.id + '">' + user.name + '</option>');
 			});
 		});
 	});
-
 }
 
-function updateAvailItems(data) {
-	if (availItems.length === 0) {
-		initAvailItems(data);
+function updateSelectControls(e) {
+	console.log('Name:' + e.target.name);
+	console.log('Value: ' + e.target.value);
+}
+
+function updateAvailUsers(data) {
+	if (availUsers.length === 0) {
+		initAvailUsers(data);
 	}
 	else {
 
@@ -38,15 +48,15 @@ function updateAvailItems(data) {
 
 }
 
-function initAvailItems(data) {
+function initAvailUsers(data) {
 	// Ensure that availItems is empty
-	var newItem;
+	var newUser;
 	for (var i = 0; i < data.length; i++) {
-		newItem = {
-			id: data[i].id, 
+		newUser = {
+			id: data[i].id,
 			name: data[i].last_name + ', ' + data[i].first_name
 		};
-		availItems.push(newItem);
+		availUsers.push(newUser);
 	}
 }
 
