@@ -24,7 +24,10 @@ Route::resource('project13s', 'Project13sController');
 Route::get('/org-users', function() {
 	$org_id = Input::get('org_id');
 	
-	$users = App\User::where('organization_id', '=', $org_id)->get();
+	$users = App\User::where('organization_id', '=', $org_id)
+			->orderBy('last_name', 'asc')
+			->orderBy('first_name', 'asc')
+			->get();
 	
 	return Response::json($users);
 	

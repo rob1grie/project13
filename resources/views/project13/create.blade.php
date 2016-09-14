@@ -113,14 +113,19 @@
 
 @section('script')
 <script>
+	var availItems = [];
+	var usedItems = [];
+	
 	$('#organization').on('change', function (e) {
-		console.log(e);
 		var org_id = e.target.value;
 
 		$.get('/org-users?org_id=' + org_id, function (data) {
+//			var arr = JSON.parse(data);
+			console.log(data);
 			$('#white_hat').empty();
+			$('#white_hat').append('<option value="0">[Select]</option>');
 			$.each(data, function (index, user) {
-				$('#white_hat').append('<option value="' + user.id + '">' + user.last_name + '</option>');
+				$('#white_hat').append('<option value="' + user.id + '">' + user.last_name + ', ' + user.first_name + '</option>');
 			});
 		});
 	});

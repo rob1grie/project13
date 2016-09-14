@@ -91,8 +91,8 @@ class Project13sController extends Controller {
 				->orderBy('name', 'asc')
 				->get();
 		$users = Project13sController::buildUsersSelect($users);
-		
-		return view('organization/create-p13', compact('organization', 'users'));;
+
+		return view('organization/create-p13', compact('organization', 'users'));
 	}
 
 	protected function buildUsersSelect($users) {
