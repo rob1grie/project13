@@ -1,11 +1,28 @@
 
-var availUsers = new Map();
+/*
+ * availUsers:	Stores all Users for the Organization that haven't been selected
+ *		fields:	id			The id field from the database
+ *				name		Concatenation of last_name, first_name from database
+ */
+var availUsers = [];
+
+/*
+ * usedUsers:	Stores Users for the Organization that have been selected
+ *		fields:	selectId	The id (and name) of the select control that has this User selected
+ *				userId		The id of the User from the database
+ */
 var usedUsers = [];
+
+// jQuery generated array of all select controls that don't include organization
 var selectControls = $("select[id!='organization']");
+
+// onChange handler for the organization select control
 $('#organization').on('change', function (e) {
 // When organization changes, need to initialize the user selects
 	initSelectControls(e);
 });
+
+// onChange handler for all select controls except organization
 $("select[id!='organization']").on('change', function (e) {
 // When any of the user selects changes, need to update availUsers and usedUsers
 	updateSelectControls(e);
@@ -46,7 +63,11 @@ function initAvailUsers(data) {
 // Ensure that availItems is empty
 	var newUser;
 	for (var i = 0; i < data.length; i++) {
-		availUsers.set(data[i].id, data[i].last_name + ', ' + data[i].first_name);
+		newUser = {
+			id: data[i].id,
+			name: data[i].last_name + ', ' + data[i].first_name
+		};
+		availUsers.push(newUser);
 	}
 	availUsers.forEach(function (value, key) {
 		console.log(key + " = " + value);
