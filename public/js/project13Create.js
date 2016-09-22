@@ -71,6 +71,7 @@ function updateAvailUsers(data) {
 
 function initAvailUsers(data) {
 // Ensure that availItems is empty
+	availUsers = [];
 	var newUser;
 	for (var i = 0; i < data.length; i++) {
 		newUser = {
