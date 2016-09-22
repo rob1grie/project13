@@ -48,7 +48,15 @@ function updateSelectControls(e) {
 //	console.log('Name:' + e.target.name);
 //	console.log('Value: ' + e.target.value);
 	// Check whether the select control is already in usedUsers
-	
+	if (!selectIsUsed(e)) {
+		// Save selected user to usedUsers
+		usedUsers.push({
+			selectId:	e.target.name,
+			userId:		e.target.value
+		});
+		// Remove selected user from availUsers
+		
+	}
 }
 
 function updateAvailUsers(data) {
@@ -56,7 +64,7 @@ function updateAvailUsers(data) {
 		initAvailUsers(data);
 	}
 	else {
-
+		
 	}
 
 }
@@ -74,7 +82,9 @@ function initAvailUsers(data) {
 }
 
 function selectIsUsed(data) {
-	// Returns true if data.name is found in usedUsers
-	
+	// Returns true if data.id is found in usedUsers
+	usedUsers.forEach(function(item, index, array) {
+		
+	});
 }
 	
