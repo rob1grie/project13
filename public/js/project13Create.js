@@ -45,8 +45,10 @@ function initSelectControls(e) {
 }
 
 function updateSelectControls(e) {
-	console.log('Name:' + e.target.name);
-	console.log('Value: ' + e.target.value);
+//	console.log('Name:' + e.target.name);
+//	console.log('Value: ' + e.target.value);
+	// Check whether the select control is already in usedUsers
+	
 }
 
 function updateAvailUsers(data) {
@@ -69,9 +71,10 @@ function initAvailUsers(data) {
 		};
 		availUsers.push(newUser);
 	}
-	availUsers.forEach(function (value, key) {
-		console.log(key + " = " + value);
-	}, availUsers);
 }
 
+function selectIsUsed(data) {
+	// Returns true if data.name is found in usedUsers
+	
+}
 	
