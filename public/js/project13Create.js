@@ -77,7 +77,8 @@ function updateCollections(select) {
 	// First check whether selection was changed to '[Select]'
 	if (parseInt(select.value) === 0) {
 		// Restore the User referenced by 'select' to availUsers
-		user = restoreUsedUser(select.name).user;
+		user = restoreUsedUser(select.name);
+		user = user.usedUser;
 		addAvailUser(user);
 	}
 	// Check whether the select control is already in usedUsers
@@ -228,7 +229,7 @@ function removeUsedUser(selectName) {
  * Removes the User referenced by 'select' and restores it to availUsers
  */
 function restoreUsedUser(selectName) {
-	user = removeUsedUser(selectName);
+	removedUser = removeUsedUser(selectName);
 	
-	return user;
+	return removedUser;
 }
