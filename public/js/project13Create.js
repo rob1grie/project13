@@ -53,8 +53,15 @@ function initSelectControls(orgId) {
 
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
+			
+			testDiv = $('#test');
+			testDiv.empty();
+			
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
+			
+			testDiv.append(control.html());
+
 			availUsers.forEach(function (user) {
 				control.append('<option value=' + user.id + '>' + user.name + '</option>');
 			});
@@ -114,7 +121,9 @@ function loadUserSelects() {
 		var selectArray = buildSelectArray(controlId.name);
 		
 		selectArray.forEach(function (user) {
-			control.append('<option value=' + user.id + '>' + user.name + '</option>');
+			control.append('<option value=' + user.id 
+					+ (controlId.value === user.id) ? ' select ' : ''
+					+ '>' + user.name + '</option>');
 		});
 	});
 }
