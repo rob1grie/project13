@@ -9,8 +9,9 @@ var availUsers = [];
 /*
  * usedUsers:	Stores Users for the Organization that have been selected
  *		fields:	selectId	The id (and name) of the select control that has this User selected
- *				userId		The id of the User from the database
- *				userName	The name of the User, saved to ease adding back to availUsers if necessary
+ *				user		The User object contained in this item
+ *					id		The id of the User from the database
+ *					name	The name of the User, as last_name, first_name
  */
 var usedUsers = [];
 
@@ -80,7 +81,7 @@ function updateCollections(select) {
 	// First check whether selection was changed to '[Select]'
 	if (parseInt(select.value) === 0) {
 		// Restore the User referenced by 'select' to availUsers
-		user = restoreUsedUser(select.name);
+		user = removeUsedUser(select.name);
 		user = user.usedUser;
 		addAvailUser(user);
 	}
@@ -127,7 +128,11 @@ function buildSelectArray(selectName) {
 	var usedUser = getSelectUser(selectName);
 	
 	// Initialize selectArray with the User referenced by the select control
-	var selectArray = [usedUser];
+	var selectArray = [];
+	selectArray.push({
+		id:		usedUser.id,
+		name:	usedUser.name
+	});
 	
 	// Add all availUsers to selectArray
 	availUsers.forEach(function (user) {
@@ -188,7 +193,7 @@ function removeAvailUser(id) {
 		user = availUsers[i];
 		if (user.id === id) {
 			var pos = availUsers.indexOf(user);
-			removedUser = availUsers.splice(pos, 1);
+			removedUser = availUsers.splice(pos, 1)[0];
 			break;
 		}
 	}
@@ -274,7 +279,7 @@ function removeUsedUser(selectName) {
 	var removedUser;
 	for (var i = 0; i < usedUsers.length; i++) {
 		if (usedUsers[i].selectName === selectName) {
-			removedUser = usedUsers.splice(i, 1);
+			removedUser = usedUsers.splice(i, 1)[0];
 			break;
 		}
 	}
