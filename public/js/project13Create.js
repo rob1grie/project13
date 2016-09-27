@@ -116,22 +116,21 @@ function loadUserSelects() {
 	var selectArray = [];
 	var controlText = '';
 	
-	$.each(selectControls, function (index, controlId) {
-		control = $('#' + controlId.name);
-		console.log(control);
-		control.empty();
-		control.append('<option value="0">[Select]</option>');
-
-		selectArray = buildSelectArray(controlId.name);
-
-		selectArray.forEach(function (user) {
-			controlText = '<option value=' + user.id;
-			if (controlId.value === user.id) {
-				controlText += ' selected ';
-			}
-			controlText += '>' + user.name + '</option>';
-			control.append(controlText);
+	$.each(selectControls, function (index, control) {
+		var selectName = "#" + control.name;
+		$(selectName).empty();
+		
+		selectArray = buildSelectArray(control.name);
+		
+		$(selectName).append('<option value="0">[Select]</option>');
+		
+		selectArray.forEach(function(user){
+			var controlText = '<option value="' + user.id + '"';
+//			if ()
+			+ '">' + user.name + "</option>'";
+			$(selectName).append(controlText);
 		});
+		
 	});
 }
 
