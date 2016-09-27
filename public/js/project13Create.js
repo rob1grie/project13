@@ -54,13 +54,13 @@ function initSelectControls(orgId) {
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
 
-			testDiv = $('#test');
-			testDiv.empty();
+//			testDiv = $('#test');
+//			testDiv.empty();
 
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
 
-			testDiv.append(control.html());
+//			testDiv.append(control.html());
 
 			availUsers.forEach(function (user) {
 				control.append('<option value=' + user.id + '>' + user.name + '</option>');
@@ -113,19 +113,24 @@ function updateCollections(select) {
  */
 function loadUserSelects() {
 	// Step through each select control
+	var selectArray = [];
+	var controlText = '';
+	
 	$.each(selectControls, function (index, controlId) {
 		control = $('#' + controlId.name);
 		console.log(control);
 		control.empty();
 		control.append('<option value="0">[Select]</option>');
 
-		var selectArray = buildSelectArray(controlId.name);
+		selectArray = buildSelectArray(controlId.name);
 
 		selectArray.forEach(function (user) {
-//			console.log(user.id + ', ' + user.name);
-			control.append('<option value=' + user.id + 'name="' + controlId.name + '"'
-					+ (controlId.value === user.id) ? ' select ' : ''
-					+ '>' + user.name + '</option>');
+			controlText = '<option value=' + user.id;
+			if (controlId.value === user.id) {
+				controlText += ' selected ';
+			}
+			controlText += '>' + user.name + '</option>';
+			control.append(controlText);
 		});
 	});
 }
@@ -253,13 +258,14 @@ function getAvailUserName(userId) {
  */
 function selectIsUsed(selectName) {
 	// Returns true if select control's name is found in usedUsers
-
+	var result = false;
+	
 	usedUsers.forEach(function (usedUser) {
 		if (usedUser.selectName === selectName) {
-			return true;
+			result = true;
 		}
 	});
-	return false;
+	return result;
 }
 
 /*
