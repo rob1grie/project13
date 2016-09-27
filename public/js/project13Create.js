@@ -53,13 +53,13 @@ function initSelectControls(orgId) {
 
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
-			
+
 			testDiv = $('#test');
 			testDiv.empty();
-			
+
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
-			
+
 			testDiv.append(control.html());
 
 			availUsers.forEach(function (user) {
@@ -76,7 +76,7 @@ function initSelectControls(orgId) {
 function updateSelectControls(select) {
 	// First update availUsers and usedUsers
 	updateCollections(select);
-	
+
 	loadUserSelects();
 }
 
@@ -115,13 +115,15 @@ function loadUserSelects() {
 	// Step through each select control
 	$.each(selectControls, function (index, controlId) {
 		control = $('#' + controlId.name);
+		console.log(control);
 		control.empty();
 		control.append('<option value="0">[Select]</option>');
-		
+
 		var selectArray = buildSelectArray(controlId.name);
-		
+
 		selectArray.forEach(function (user) {
-			control.append('<option value=' + user.id 
+//			console.log(user.id + ', ' + user.name);
+			control.append('<option value=' + user.id + 'name="' + controlId.name + '"'
 					+ (controlId.value === user.id) ? ' select ' : ''
 					+ '>' + user.name + '</option>');
 		});
@@ -134,26 +136,30 @@ function loadUserSelects() {
  * including the usedUser for the current select control
  */
 function buildSelectArray(selectName) {
-	var usedUser = getSelectUser(selectName);
-	
-	// Initialize selectArray with the User referenced by the select control
+	var usedUser;
 	var selectArray = [];
-	selectArray.push({
-		id:		usedUser.id,
-		name:	usedUser.name
-	});
-	
+
+	if (selectIsUsed(selectName)) {
+		usedUser = getSelectUser(selectName);
+		// Initialize selectArray with the User referenced by the select control
+		selectArray.push({
+			id: usedUser.id,
+			name: usedUser.name
+		});
+	}
+
+
 	// Add all availUsers to selectArray
 	availUsers.forEach(function (user) {
 		selectArray.push({
-			id:		user.id,
-			name:	user.name
+			id: user.id,
+			name: user.name
 		});
 	});
-	
+
 	// Sort the items in selectArray by the user.name
 	selectArray.sort(compareUsers);
-	
+
 	return selectArray;
 }
 
@@ -302,13 +308,13 @@ function removeUsedUser(selectName) {
  */
 function getSelectUser(selectName) {
 	var usedUser;
-	
-	for (var i=0; i<usedUsers.length; i++) {
+
+	for (var i = 0; i < usedUsers.length; i++) {
 		if (usedUsers[i].selectName === selectName) {
 			usedUser = usedUsers[i].usedUser;
 			break;
 		}
 	}
-	
+
 	return usedUser;
 }
