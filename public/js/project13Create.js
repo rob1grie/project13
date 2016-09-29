@@ -8,7 +8,7 @@ var availUsers = [];
 
 /*
  * usedUsers:	Stores Users for the Organization that have been selected
- *		fields:	selectId	The id (and name) of the select control that has this User selected
+ *		fields:	selectName	The id (and name) of the select control that has this User selected
  *				user		The User object contained in this item
  *					id		The id of the User from the database
  *					name	The name of the User, as last_name, first_name
@@ -54,13 +54,8 @@ function initSelectControls(orgId) {
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
 
-//			testDiv = $('#test');
-//			testDiv.empty();
-
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
-
-//			testDiv.append(control.html());
 
 			availUsers.forEach(function (user) {
 				control.append('<option value=' + user.id + '>' + user.name + '</option>');
@@ -78,6 +73,8 @@ function updateSelectControls(select) {
 	updateCollections(select);
 
 	loadUserSelects();
+
+	setSelectedUsers();
 }
 
 /*
@@ -115,22 +112,21 @@ function loadUserSelects() {
 	// Step through each select control
 	var selectArray = [];
 	var controlText = '';
-	
-	$.each(selectControls, function (index, control) {
-		var selectName = "#" + control.name;
+
+	$.each(selectControls, function (index, controlId) {
+		var selectName = "#" + controlId.name;
 		$(selectName).empty();
-		
-		selectArray = buildSelectArray(control.name);
-		
+
+		selectArray = buildSelectArray(controlId.name);
+
 		$(selectName).append('<option value="0">[Select]</option>');
-		
-		selectArray.forEach(function(user){
-			var controlText = '<option value="' + user.id + '"';
-//			if ()
-			+ '">' + user.name + "</option>'";
+
+		selectArray.forEach(function (user) {
+			var controlText = '<option value="' + user.id + '">' + user.name + "</option>'";
 			$(selectName).append(controlText);
 		});
-		
+
+
 	});
 }
 
@@ -198,7 +194,10 @@ function initAvailUsers(data) {
  * Add the User referenced in 'data' to availUsers and re-sort
  */
 function addAvailUser(user) {
-
+	availUsers.push({
+		id:		user.id,
+		name:	user.name
+	});
 }
 
 /*
@@ -258,7 +257,7 @@ function getAvailUserName(userId) {
 function selectIsUsed(selectName) {
 	// Returns true if select control's name is found in usedUsers
 	var result = false;
-	
+
 	usedUsers.forEach(function (usedUser) {
 		if (usedUser.selectName === selectName) {
 			result = true;
@@ -322,4 +321,26 @@ function getSelectUser(selectName) {
 	}
 
 	return usedUser;
+}
+
+/*
+ * Set the selected User with the ID of id
+ */
+function setSelectedUsers() {
+	usedUsers.forEach(function(usedUser) {
+		var user = usedUser.usedUser;
+		var selectName = usedUser.selectName;
+		$('#' + selectName).val(user.id);
+	});
+}
+
+
+/*
+ * Set text in testDiv
+ */
+function setTestDiv(text) {
+	testDiv = $('#test');
+	testDiv.empty();
+	testDiv.append(text);
+
 }
