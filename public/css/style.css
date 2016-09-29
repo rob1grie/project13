@@ -33,3 +33,11 @@
 .center-text {
 	text-align: center;	
 }
+
+.select-width-100 {
+	width: 100%;
+}
+
+td {
+	white-space: nowrap
+}

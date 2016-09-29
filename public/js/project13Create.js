@@ -1,4 +1,3 @@
-
 /*
  * availUsers:	Stores all Users for the Organization that haven't been selected
  *		fields:	id			The id field from the database
@@ -15,11 +14,19 @@ var availUsers = [];
  */
 var usedUsers = [];
 
+/*
+ * onClick handler for all the reset buttons next to the select controls
+ */
+var resetButtons = $("button[id$='reset']");
+resetButtons.on('click', function (e) {
+	resetSelect(e.target);
+});
 
 /*
  * jQuery generated array of all select controls that don't include organization
  */
 var selectControls = $("select[id!='organization']");
+selectControls.addClass("select-width-100");
 
 
 /*
@@ -38,6 +45,8 @@ $("select[id!='organization']").on('change', function (e) {
 // When any of the user selects changes, need to update availUsers and usedUsers
 	updateSelectControls(e.target);
 });
+
+
 
 
 /*
@@ -343,4 +352,31 @@ function setTestDiv(text) {
 	testDiv.empty();
 	testDiv.append(text);
 
+}
+
+/*
+ * Get the select control's id referenced by the reset button
+ */
+function getResetSelectId(btn) {
+	var name = btn.id;
+	var i = name.indexOf('reset');
+	var selectName = name.substring(0, i-1);
+	
+	return selectName;
+}
+
+/*
+ * Reset the associated select control to value of 0
+ */
+function resetSelect(btn) {
+	var selectName = getResetSelectId(btn);
+	
+	var removedUser = removeUsedUser(selectName);
+	addAvailUser(removedUser);
+	
+	$("#" + selectName).val(0);
+	
+	loadUserSelects();
+	
+	return selectName;
 }

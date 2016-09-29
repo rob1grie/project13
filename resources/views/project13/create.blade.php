@@ -26,78 +26,130 @@
 						<td>{!! Form::label('white_hat', 'White Hat') !!}</td>
 						<td>
 							{!! Form::select('white_hat') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">{!! Form::label('blue_hat_1', 'Blue Hat 1') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_1') !!}
+							{!! Form::button(null, [
+							'id'=>'blue_hat_1-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_1-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-1') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_1-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-2') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_1-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-3') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">{!! Form::label('blue_hat_2', 'Blue Hat 2') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_2') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_2-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-1') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_2-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-2') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_2-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-3') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-10">{!! Form::label('blue_hat_3', 'Blue Hat 3') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_3') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_3-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-1') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_3-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-2') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 					<tr>
 						<td class="pad-left-20">{!! Form::label('yellow_hat_3-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-3') !!}
+							{!! Form::button(null, [
+							'id'=>'white_hat-reset', 
+							'onclick'=>'resetControl()', 
+							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
 				</thead>
