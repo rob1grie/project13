@@ -95,7 +95,6 @@ function updateCollections(select) {
 	if (parseInt(select.value) === 0) {
 		// Restore the User referenced by 'select' to availUsers
 		user = removeUsedUser(select.name);
-		user = user.usedUser;
 		addAvailUser(user);
 	}
 	// Check whether the select control is already in usedUsers
@@ -122,20 +121,27 @@ function loadUserSelects() {
 	var selectArray = [];
 	var controlText = '';
 
-	$.each(selectControls, function (index, controlId) {
-		var selectName = "#" + controlId.name;
-		$(selectName).empty();
+	$.each(selectControls, function (index, selectControl) {
+		var sc = "#" + selectControl.name;
+		$(sc).empty();
 
-		selectArray = buildSelectArray(controlId.name);
+		selectArray = buildSelectArray(selectControl.name);
 
-		$(selectName).append('<option value="0">[Select]</option>');
+		$(sc).append('<option value="0">[Select]</option>');
 
 		selectArray.forEach(function (user) {
 			var controlText = '<option value="' + user.id + '">' + user.name + "</option>'";
-			$(selectName).append(controlText);
+			$(sc).append(controlText);
 		});
 
-
+		var user = getSelectUser(selectControl.name);
+		if (!user) {
+			$(sc).val(0);
+		}
+		else {
+			$(sc).val(user.id);
+		}
+		
 	});
 }
 
@@ -267,11 +273,14 @@ function selectIsUsed(selectName) {
 	// Returns true if select control's name is found in usedUsers
 	var result = false;
 
-	usedUsers.forEach(function (usedUser) {
+	for(var i=0; i<usedUsers.length; i++) {
+		var usedUser = usedUsers[i];
 		if (usedUser.selectName === selectName) {
 			result = true;
+			break;
 		}
-	});
+	}
+	
 	return result;
 }
 
@@ -307,7 +316,7 @@ function removeUsedUser(selectName) {
 	var removedUser;
 	for (var i = 0; i < usedUsers.length; i++) {
 		if (usedUsers[i].selectName === selectName) {
-			removedUser = usedUsers.splice(i, 1)[0];
+			removedUser = usedUsers.splice(i, 1)[0].usedUser;
 			break;
 		}
 	}

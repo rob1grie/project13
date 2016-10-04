@@ -47,7 +47,7 @@
 						<td>
 							{!! Form::select('yellow_hat_1-1') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_1-1-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -57,7 +57,7 @@
 						<td>
 							{!! Form::select('yellow_hat_1-2') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_1-2-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -67,7 +67,7 @@
 						<td>
 							{!! Form::select('yellow_hat_1-3') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_1-3-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -77,7 +77,7 @@
 						<td>
 							{!! Form::select('blue_hat_2') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'blue_hat_2-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -87,7 +87,7 @@
 						<td>
 							{!! Form::select('yellow_hat_2-1') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_2-1-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -97,7 +97,7 @@
 						<td>
 							{!! Form::select('yellow_hat_2-2') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_2-2-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -107,7 +107,7 @@
 						<td>
 							{!! Form::select('yellow_hat_2-3') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_2-3-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -117,7 +117,7 @@
 						<td>
 							{!! Form::select('blue_hat_3') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'blue_hat_3-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -127,7 +127,7 @@
 						<td>
 							{!! Form::select('yellow_hat_3-1') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_3-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -137,7 +137,7 @@
 						<td>
 							{!! Form::select('yellow_hat_3-2') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_3-2-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
@@ -147,7 +147,7 @@
 						<td>
 							{!! Form::select('yellow_hat_3-3') !!}
 							{!! Form::button(null, [
-							'id'=>'white_hat-reset', 
+							'id'=>'yellow_hat_3-3-reset', 
 							'onclick'=>'resetControl()', 
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
