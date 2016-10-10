@@ -21,6 +21,7 @@
 					<tr>
 						<th>Role</th>
 						<th>Member Name</th>
+						<th>[Reset]</th>
 					</tr>
 					<tr>
 						<td>{!! Form::label('white_hat', 'White Hat') !!}</td>
@@ -33,7 +34,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">{!! Form::label('blue_hat_1', 'Blue Hat 1') !!}</td>
+						<td class="blue-label">{!! Form::label('blue_hat_1', 'Blue Hat 1') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_1') !!}
 							{!! Form::button(null, [
@@ -43,7 +44,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_1-1', 'Yellow Hat 1') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_1-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-1') !!}
 							{!! Form::button(null, [
@@ -53,7 +54,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_1-2', 'Yellow Hat 2') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_1-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-2') !!}
 							{!! Form::button(null, [
@@ -63,7 +64,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_1-3', 'Yellow Hat 3') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_1-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_1-3') !!}
 							{!! Form::button(null, [
@@ -73,7 +74,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">{!! Form::label('blue_hat_2', 'Blue Hat 2') !!}</td>
+						<td class="blue-label">{!! Form::label('blue_hat_2', 'Blue Hat 2') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_2') !!}
 							{!! Form::button(null, [
@@ -83,7 +84,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_2-1', 'Yellow Hat 1') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_2-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-1') !!}
 							{!! Form::button(null, [
@@ -93,7 +94,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_2-2', 'Yellow Hat 2') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_2-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-2') !!}
 							{!! Form::button(null, [
@@ -103,7 +104,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_2-3', 'Yellow Hat 3') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_2-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_2-3') !!}
 							{!! Form::button(null, [
@@ -113,7 +114,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-10">{!! Form::label('blue_hat_3', 'Blue Hat 3') !!}</td>
+						<td class="blue-label">{!! Form::label('blue_hat_3', 'Blue Hat 3') !!}</td>
 						<td>
 							{!! Form::select('blue_hat_3') !!}
 							{!! Form::button(null, [
@@ -123,7 +124,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_3-1', 'Yellow Hat 1') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_3-1', 'Yellow Hat 1') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-1') !!}
 							{!! Form::button(null, [
@@ -133,7 +134,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_3-2', 'Yellow Hat 2') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_3-2', 'Yellow Hat 2') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-2') !!}
 							{!! Form::button(null, [
@@ -143,7 +144,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="pad-left-20">{!! Form::label('yellow_hat_3-3', 'Yellow Hat 3') !!}</td>
+						<td class="yellow-label">{!! Form::label('yellow_hat_3-3', 'Yellow Hat 3') !!}</td>
 						<td>
 							{!! Form::select('yellow_hat_3-3') !!}
 							{!! Form::button(null, [
@@ -152,12 +153,19 @@
 							'class'=>'glyphicon glyphicon-remove']) !!}
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="button-row">
+								{!! Form::submit('Save', $attributes = ['class' => 'btn btn-primary btn-10rem']) !!}
+								<a class="btn btn-warning btn-10rem" href="{{ URL::previous() }}">Cancel</a>
+							</div>
+
+						</td>
+					</tr>
 				</thead>
 			</table>
 		</div>
 
-		{!! Form::submit('Save', $attributes = ['class' => 'btn btn-primary btn-10rem']) !!}
-		<a class="btn btn-warning btn-10rem" href="{{ URL::previous() }}">Cancel</a>
 
 		{!! Form::close() !!}
 	</div>
