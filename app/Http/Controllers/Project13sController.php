@@ -55,7 +55,8 @@ class Project13sController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request) {
-		
+		$org = $request->organization;
+		var_dump($request->organization);													
 	}
 
 	/**
