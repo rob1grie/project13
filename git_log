@@ -1,0 +1,422 @@
+* commit 6491c98a7083ff4aab6849aa3f86b63c174e2280 (HEAD -> master, origin/master, origin/HEAD)
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Mon Oct 10 10:16:20 2016 -0500
+| 
+|     Set colors of project13 create form, tried to align buttons better.
+|  
+* commit dfd9ff886b19e17cfb5e2ad235c6d9407c11fdf8
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Tue Oct 4 21:51:19 2016 -0500
+| 
+|     Added latest backup of database
+|  
+* commit 3c87078f5f0452615e1f3c5458c280043d31a2d8
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Tue Oct 4 13:26:28 2016 -0500
+| 
+|     Finally seem to have the User select controls operating properly in Project13 Create form
+|     Had to fix the IDs of the reset buttons, all were still set to 'white_hat'
+|     Worked through passing the correct data to each function in project13create.js
+|  
+* commit 9a82b699405bdf46ce900dcd8b8cde4304895095 (origin/implement_react-laravel)
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Thu Sep 29 14:11:05 2016 -0500
+| 
+|     Working on reseting a select control. resetSelection() is sort of working, but needs to be properly updating all the select controls.
+|  
+* commit 3b2832c94d9cb1742fb9f85e14f1eca968750cfb
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Thu Sep 29 12:48:22 2016 -0500
+| 
+|     User selects appear to be working properly, though they haven't been thoroughly tested. Moving on to adding a 'Reset' button next to each select control, instead of the user having to select [Select] to add a selected user back to availUsers
+|  
+* commit 34ffeb8795f35043d0dd9be6fd4c9b2ac7453ffc
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Tue Sep 27 18:29:08 2016 -0500
+| 
+|     Select controls are populated but the selected User isn't selected
+|  
+* commit 18aee6970c2a04c26a19173f3ce1f45df0d3eb01
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Tue Sep 27 17:52:14 2016 -0500
+| 
+|     Making better progress with Chrome, able to debug easier. Finding bugs, now found jQuery method of populating a select control (http://stackoverflow.com/questions/815103/jquery-best-practice-to-populate-drop-down). Committing changes before trying some of the suggestions
+|  
+* commit 13f1127fde022e9f1518a38d99aabd72c2980feb
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Tue Sep 27 17:05:26 2016 -0500
+| 
+|     Finally onto something repopulating the User select controls. Need to carefully step through project13Create.js function loadUserSelects()
+|  
+* commit a0983fca00bf23ea3c9ad5f1dd4237886c006627
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Mon Sep 26 16:43:51 2016 -0500
+| 
+|     Still trying to get user select controls to populate properly. Starting to doubt my jQuery syntax
+|  
+* commit bd9fdded239de40e1f0366b92c2360f0c29418f5
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Mon Sep 26 15:00:15 2016 -0500
+| 
+|     Still orking on updating select controls when a user is selected.
+|  
+* commit 2bafffed2240618cdef47a7ab2d5ca5d864b98e7
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Mon Sep 26 11:56:42 2016 -0500
+| 
+|     Working on updating select controls when a user is selected. Not sure what's going on.
+|  
+* commit 5f7eaa30d78033c68335876f046a410da1cebd9a
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Thu Sep 22 14:25:55 2016 -0500
+| 
+|     When removedUser is returned from removeUsedUser it is undefined.
+|  
+* commit b6d4130adcd98b8f3c2187a9e2fd635d836de9f0
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Thu Sep 22 14:15:48 2016 -0500
+| 
+|     Still workiing on updating availUsers and usedUsers. When a select control is changed back to [Select] the User is removed from usedUsers but not added back to availUsers
+|  
+* commit 1d2a80f5fee88a2e339eafe202f21b1da1527a60
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Thu Sep 22 11:57:53 2016 -0500
+| 
+|     Continuing work on project13Create.js, working with availUsers and usedUsers
+|  
+* commit 5bc6b38cb924d90e23db8022cd16109654b2d208
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Thu Sep 22 08:38:36 2016 -0500
+| 
+|     Working on updating useeUsers and availUsers when one is selected
+|  
+* commit 30193507422f82a6ea8c25bb805b810c8804836e
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed Sep 21 20:23:24 2016 -0500
+| 
+|     Trying to figure out how to search usedUsers for select controls that have been used
+|  
+* commit e8bf3a7e8eff896ddadc62c19fc79d016bcd2f8e
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed Sep 21 19:40:55 2016 -0500
+| 
+|     Committing changes before checking out prior version of project13Create.js
+|  
+* commit 64fda263bc823cdf60fabd420bb3c82139b99e18
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed Sep 21 16:48:29 2016 -0500
+| 
+|     Trying different things with availUsers, as a Map or something else. Need to have an efficient means of sorting and searching
+|  
+* commit b154acaab285a98acae343e411840be2b8b07d1a
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 15:23:29 2016 -0500
+| 
+|     Able to get the name and value of the changed user select control. Ready to build and update availUsers and usedUsers. (Had previously renamed availItems and usedItems)
+|  
+* commit ba273619b4e94031ebc23897bc7ba2dadc7ef928
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 14:42:48 2016 -0500
+| 
+|     Used a javascript object instead of creating a whole class. Select controls are now being populated, all entries in organization and user selects are sorted. availItems is populated, ready to implement usedItems
+|  
+* commit 6733c105fc634469b3e84d840c403e7bded8486a
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 14:21:46 2016 -0500
+| 
+|     Trying to use availItems as the source for the select controls. Need to create a class for the items so they can be referenced by name
+|  
+* commit e41c987aca6726cba300f04f8ab28e86f0857d87
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 14:00:05 2016 -0500
+| 
+|     Now only selecting the select controls that are not organization
+|  
+* commit 30dde8d5131c7edbc16e2d412b7604511151e9ec
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 13:33:01 2016 -0500
+| 
+|     All select controls are populating correctly, and are sorted. Moving on to catch the change event to update availableItems
+|  
+* commit d1dc72019ee56c2f78a03244e0f34c3a2b49217e
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Sep 14 13:18:58 2016 -0500
+| 
+|     Have all select controls on Project13 Create form being populated. Had attempted to sort organizations in the select control but that broke everything. Reverted to last working version where user selects are being populated.
+|  
+* commit aeaf95a4d829f7889adb6c49ffea629234a0f138
+| Author: Rob Grieshaber <‘rob@lgd-it.us’>
+| Date:   Wed Sep 14 10:15:29 2016 -0500
+| 
+|     Added Netbeans project to source control
+|  
+* commit 4169deb221a3afeabecf5554a7733565035c98d5
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Sat Sep 3 17:06:25 2016 -0500
+| 
+|     Added latest mysql backup
+|  
+* commit ba715f00bd1511e990c87ef028921ba2b8854186
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Tue Aug 30 15:27:19 2016 -0500
+| 
+|     Finally getting Ajax to populate the White Hat drop down on Project13 Create form
+|  
+* commit 3cfad3f694faacbb8103f11eebbbadf6b3d108c7
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Tue Aug 30 10:27:03 2016 -0500
+| 
+|     Removing Netbeans project from version control
+|  
+* commit 3d5afb6e98e3d9e2c062e98029029c4c58859d55
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Aug 24 09:52:03 2016 -0500
+| 
+|     Still trying to get getallusers to work, but will pull away and get users through controller instead of view.
+|  
+* commit 35ec6a329fe77fdf57e5484a0c3878e004cb39b1
+| Author: Rob G <rob@lgd-it.us>
+| Date:   Wed Aug 10 11:24:39 2016 -0500
+| 
+|     Working on getting getorgusers.php to be able to access the User model
+|  
+* commit a31ffa9a933830bc7b7ba1c51f2454ec27afdb1c
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Tue Aug 9 15:46:35 2016 -0500
+| 
+|     Still trying to get Project13 create forms to work. About to give up on Ajax, send all Users to the create form and use jQuery to repopulate drop downs
+|  
+* commit 5452698120f1812a1436c197a4202def60fe4a0f
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Tue Aug 9 14:36:31 2016 -0500
+| 
+|     Created two different views for creating Project13
+|  
+* commit 6ff8a3f8e3003aeb5ad6354bd540985b6b756ea3
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Tue Jul 12 15:05:26 2016 -0500
+| 
+|     Still having problems with adding Project 13. Will need to back up several steps, possibly use completely different views and routes for adding a Project 13 for an organization vs selecting the organization in the Add Project 13 form.
+|  
+* commit 17a50afcb434ea0268c5b2ae97b0e1be4d8e49b2
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Tue Jul 12 11:51:38 2016 -0500
+| 
+|     Working on getting the appropriate onload method to be called when adding a Project 13
+|  
+* commit 59a06572c2bbd5b0d8a78bea043da69993c77e44
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Mon Jul 11 22:28:02 2016 -0500
+| 
+|     Started work on AJAX code for Project 13 create
+|  
+* commit 29fc94ad488f46a593c2e035200a8d09382367d7
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed Jul 6 16:06:47 2016 -0500
+| 
+|     User select control is being properly populated for Project13 create. Moving next to using Ajax to re-populate the selects when a User is selected
+|  
+* commit c5e09f7c329ab0fbd023f756c9376ae3480fa14d
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 17 09:15:54 2016 -0500
+| 
+|     Added a random space to test the push operation
+|  
+* commit 8a52aab8ca0ad5fdc0f72c7daa155c528842acac
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 17 07:28:43 2016 -0500
+| 
+|     Added latest database backup
+|  
+* commit b82490b2dad00802a7262666f75e7ebeb3abacec
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 17 07:26:00 2016 -0500
+| 
+|     Changed default role_id to 0 for [unassigned]
+|  
+* commit 0b07b7c58d34fc4410ffc7d5872e8a23761e939f
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Mon Jun 13 08:51:25 2016 -0500
+| 
+|     Working on populating drop down in form for creating new Project13. Macro at top of create.blade.php needs investigated.
+|  
+* commit 37a42d6e16b5c88f28cdc173f49042ef37a61aae
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Mon Jun 13 07:59:08 2016 -0500
+| 
+|     Added Project13 and User lists to the Organization show
+|  
+* commit a7f5ec3321a095ce10eb9db9de9df5b0cdc421ca
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Sat Jun 11 19:26:13 2016 -0500
+| 
+|     Working on adding Project13
+|  
+* commit 68f0f57b8276909d5d63d8c436c85e02bd95ac5e
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Tue Jun 7 11:36:49 2016 -0500
+| 
+|     Adding Project13 modules
+|  
+* commit 9fa7a6a054231692cbe825c6415267f9c4d5ddf2
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Tue Jun 7 10:31:00 2016 -0500
+| 
+|     Added states model and dropdown on Organization forms
+|  
+* commit 3e190fe13d6e0ba5d90ffd9114bceacc39f1288f
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Mon Jun 6 16:06:50 2016 -0500
+| 
+|     Reverting to master and will put column sorting on a wish list
+|  
+* commit 8e9c39aa0384eb32be26f11bb7ac1abf6515b020
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Mon Jun 6 15:48:15 2016 -0500
+| 
+|     Getting UserID from username is apparently working, but Settings table is storing next user ID so not sure why I was working on getting the user id. Will create a branch to try available column sorting packages
+|  
+* commit 5a73169789083e6efac847123932257c511c9873
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Mon Jun 6 09:38:42 2016 -0500
+| 
+|     Added latest MySQL backup
+|  
+* commit 4fb13bedfe69cd9ce8f8edafa5825bc9f139220b
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Mon Jun 6 09:35:20 2016 -0500
+| 
+|     Unknown changes
+|  
+* commit c3b876153dace0eaa0c0d57e206bda296fdaca58
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 3 16:17:13 2016 -0500
+| 
+|     Added my own Settings class, saved next_user_id. Need to increment in the database AFTER the new user is saved.
+|  
+* commit 9ce36e96fb8c74b7bf02c5c2f6cac71ce813d647
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 3 15:25:33 2016 -0500
+| 
+|     Trying to revert to state prior to installing two different persistent settings modules
+|  
+* commit 66f2d7bb72606ee2063bc8704e70c7f035e6d54b
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 3 14:01:55 2016 -0500
+| 
+|     Trying to set up a Settings database table. Will try installing the hailwood/database-config-loader package
+|  
+* commit b647c411c78779186f55e4a0909d1e550544190c
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Jun 3 12:48:03 2016 -0500
+| 
+|     Fixed layouts of Organization and User show and edit
+|  
+* commit 73a7066a66116a7c9f26e1ff7e28ea63179727f1
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Wed Jun 1 15:09:29 2016 -0500
+| 
+|     Working on User Show screen. Field labels aren't being placed and formatted properly. Need to revisit Organization Show screen to see how it's done.
+|  
+* commit 8daceaea81dea0c801c530bb9cf6d3bee2c64ba9
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Wed Jun 1 14:47:16 2016 -0500
+| 
+|     Fixed dropdown lists in User Create screen,inserting the instruction item at the beginning
+|  
+* commit fff83e6342b1e73a1c8472a25d353c03806c646e
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Wed Jun 1 14:11:45 2016 -0500
+| 
+|     Adding User screens. List and Create are working, though they aren't complete
+|  
+* commit 50e6fa6cc737ea9f923a9053c8dd8bfc7074b057 (origin/switch-to-mysql)
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri May 27 13:59:25 2016 -0500
+| 
+|     Switched to MySQL database. Created backup folder.
+|  
+* commit 3f78e740c64b196761c6e0791b231d40d039d2f9
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri May 27 13:19:32 2016 -0500
+| 
+|     Added roles table and model, seeded the table with essential roles. Will branch away to switch to MySQL database.
+|  
+* commit 10326ad0c869ca2de873234a244e1896c4c1d6c5
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri May 27 10:38:08 2016 -0500
+| 
+|     Added cancel button to three views for Organization
+|  
+* commit 2526d1a18ccafa21e311cd5d0ab80cb4c63906a0
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Thu May 26 13:44:44 2016 -0500
+| 
+|     Organization create and edit forms are redirecting to the Organization show page.
+|  
+* commit e0a8fd2e805d4af624a2fb84b1aa2213c75afbd8
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Thu May 26 13:30:38 2016 -0500
+| 
+|     Added create and edit views for Organization. Trying to get the forms to redirect properly after submitting them
+|  
+* commit a64eb0afbeb010386f9ccf1d3127f0a2c97c0e20
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Thu May 26 06:40:05 2016 -0500
+| 
+|     Laying out Organization detail view. Organization needs more fields, like phone, CSA, etc
+|  
+* commit 26647f777c4865aa12d9e7d359aae52ade136568
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Thu May 26 06:20:23 2016 -0500
+| 
+|     Built table of organizations, with styling
+|  
+* commit fe9048efa970e422003481732a690c13a6c25221
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Thu May 26 05:58:50 2016 -0500
+| 
+|     Added use statement in OrganizationController for Organization model. Constructor was then successful and model save was successful
+|    
+*   commit 5b8f9fb979058bbd1e6c090aa43d396eb17466aa
+|\  Merge: c88174a 61019c2
+| | Author: Rob Grieshaber <rob@lgd-it.us>
+| | Date:   Thu May 26 05:26:25 2016 -0500
+| | 
+| |     Fixed conflict in gitignore
+| |   
+| * commit 61019c2b8eb0b4b606a3fc313f744088a767d69a
+| | Author: Rob Grieshaber <robg16grie@yahoo.com>
+| | Date:   Thu May 26 05:19:08 2016 -0500
+| | 
+| |     Removed key files from gitignore
+| |   
+* | commit c88174afbd4139570ba43b731a4443518f55f559
+|/  Author: Rob Grieshaber <rob@lgd-it.us>
+|   Date:   Thu May 26 05:22:52 2016 -0500
+|   
+|       Removed important files from gitignore
+|  
+* commit ee35565e56f3b315d6d72ca0dd68c899a921897c
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed May 25 09:06:28 2016 -0500
+| 
+|     Copied in all files from new project
+|  
+* commit dbc9941d23c2f039bf3786012f0e276c8bb7d5e7
+| Author: Rob Grieshaber <rob@lgd-it.us>
+| Date:   Wed May 25 09:04:13 2016 -0500
+| 
+|     Deleted all previous files except git specific
+|  
+* commit 43881e41fade808e0fee3d40a4405eddac7804e4
+| Author: Rob Grieshaber <robg16grie@yahoo.com>
+| Date:   Fri Apr 29 07:57:06 2016 -0500
+| 
+|     Initial commit
+|  
+* commit 30929817b7bfc3cfedd7f9d2fffcb4caf2c98655
+  Author: rob1grie <rob16grie@yahoo.com>
+  Date:   Thu Apr 28 07:46:21 2016 -0500
+  
+      Initial commit
