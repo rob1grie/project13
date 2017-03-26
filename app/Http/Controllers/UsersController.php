@@ -1,11 +1,11 @@
 <?php namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Member;
 use App\Role;
 use App\Organization;
 
-class UsersController extends Controller {
+class MembersController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -13,8 +13,8 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$users = User::all();
-		return view('user/index', compact('users'));
+		$members = Member::all();
+		return view('member/index', compact('members'));
 	}
 
 	/**
@@ -23,15 +23,15 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-		$username = 'p13man-' . \App\Settings::getNextId();
+		$membername = 'p13man-' . \App\Settings::getNextId();
 		
 		$roles = Role::lists('role', 'id');
-		$roles->prepend('[Select user role]', 0);
+		$roles->prepend('[Select member role]', 0);
 
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
-		$organizations->prepend('[Select user\'s organization]', 0);
+		$organizations->prepend('[Select member\'s organization]', 0);
 
-		return view('user/create', compact('username', 'roles', 'organizations'));
+		return view('member/create', compact('membername', 'roles', 'organizations'));
 	}
 
 	/**
@@ -42,19 +42,19 @@ class UsersController extends Controller {
 	 */
 	public function store(Request $request) {
 
-		$user = new User();
-		$user->username = $request->input('username');
-		$user->password = $request->input('password');
-		$user->first_name = $request->input('first_name');
-		$user->last_name = $request->input('last_name');
-		$user->email = $request->input('email');
-		$user->role_id = $request->input('role');
-		$user->organization_id = $request->input('organization');
-		if ($user->save()) {
-			\App\Settings::setNextId($user->getUserId());
+		$member = new Member();
+		$member->membername = $request->input('membername');
+		$member->password = $request->input('password');
+		$member->first_name = $request->input('first_name');
+		$member->last_name = $request->input('last_name');
+		$member->email = $request->input('email');
+		$member->role_id = $request->input('role');
+		$member->organization_id = $request->input('organization');
+		if ($member->save()) {
+			\App\Settings::setNextId($member->getMemberId());
 		}
 
-		return \Redirect::route('users.index')->with('message', 'User Added');
+		return \Redirect::route('members.index')->with('message', 'Member Added');
 	}
 
 	/**
@@ -64,8 +64,8 @@ class UsersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id) {
-		$user = User::find($id);
-		return view('user/show', compact('user'));
+		$member = Member::find($id);
+		return view('member/show', compact('member'));
 	}
 
 	/**
@@ -76,13 +76,13 @@ class UsersController extends Controller {
 	 */
 	public function edit($id) {
 		$roles = Role::lists('role', 'id');
-		$roles->prepend('[Select user role]', 0);
+		$roles->prepend('[Select member role]', 0);
 
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
-		$organizations->prepend('[Select user\'s organization]', 0);
+		$organizations->prepend('[Select member\'s organization]', 0);
 
-		$user = User::find($id);
-		return view('user/edit', compact('user', 'roles', 'organizations'));
+		$member = Member::find($id);
+		return view('member/edit', compact('member', 'roles', 'organizations'));
 	}
 
 	/**
@@ -94,16 +94,16 @@ class UsersController extends Controller {
 	 */
 	public function update(Request $request, $id) {
 		
-		$user = User::find($id);
+		$member = Member::find($id);
 		
-		$user->first_name = $request->input('first_name');
-		$user->last_name = $request->input('last_name');
-		$user->email = $request->input('email');
-		$user->role_id = $request->input('role');
-		$user->organization_id = $request->input('organization');
-		$user->save();
+		$member->first_name = $request->input('first_name');
+		$member->last_name = $request->input('last_name');
+		$member->email = $request->input('email');
+		$member->role_id = $request->input('role');
+		$member->organization_id = $request->input('organization');
+		$member->save();
 
-		return \Redirect::route('users.show', compact('user'))->with('message', 'User Updated');
+		return \Redirect::route('members.show', compact('member'))->with('message', 'Member Updated');
 	}
 
 	/**

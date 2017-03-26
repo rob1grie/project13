@@ -1,19 +1,19 @@
 @extends('layouts.main')
 
-@section('title', 'Add User')
+@section('title', 'Add Member')
 
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Add User</h3>
+		<h3 class="panel-title">Add Member</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('action' => 'UsersController@store', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('action' => 'MembersController@store', 'enctype' => 'multipart/form-data')) !!}
 
 		<div class="form-group form-inline">
-			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('username', $value= $username, 
-				$attributes = ['class' => 'form-control', 'name' => 'username', 'readonly' => 'readonly']) !!}
+			{!! Form::label('membername', 'Membername', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('membername', $value= $membername, 
+				$attributes = ['class' => 'form-control', 'name' => 'membername', 'readonly' => 'readonly']) !!}
 		</div>
 
 		<div class="form-group form-inline">
@@ -30,7 +30,7 @@
 			{!! Form::text('email', $value=null, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
 		</div>
 
-		<!--TODO Initial temporary password will be random and emailed to the user for them to reset-->
+		<!--TODO Initial temporary password will be random and emailed to the member for them to reset-->
 
 		<div class="form-group form-inline">
 			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-md-2 control-label']) !!}

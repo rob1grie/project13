@@ -37,7 +37,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the SMTP port used by your application to deliver e-mails to
-    | users of the application. Like the host we have set this value to
+    | members of the application. Like the host we have set this value to
     | stay compatible with the Mailgun e-mail application by default.
     |
     */
@@ -72,16 +72,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | SMTP Server Username
+    | SMTP Server Membername
     |--------------------------------------------------------------------------
     |
-    | If your SMTP server requires a username for authentication, you should
+    | If your SMTP server requires a membername for authentication, you should
     | set it here. This will get used to authenticate with your server on
     | connection. You may also set the "password" value below this one.
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'membername' => env('MAIL_USERNAME'),
 
     /*
     |--------------------------------------------------------------------------

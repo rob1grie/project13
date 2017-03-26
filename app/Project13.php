@@ -12,11 +12,11 @@ class Project13 extends Model {
     }
 
     public function org_admin() {
-        return $this->hasOne('App\User', 'org_admin_id');
+        return $this->hasOne('App\Member', 'org_admin_id');
     }
 
-    public function users() {
-        return $this->hasMany('App\User')->orderBy('blue_hat_id')->orderBy('role_id');
+    public function members() {
+        return $this->hasMany('App\Member')->orderBy('blue_hat_id')->orderBy('role_id');
     }
 
     public function getProject13Id() {

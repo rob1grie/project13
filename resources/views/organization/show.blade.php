@@ -64,11 +64,11 @@
 						<th class="center-text">Project 13</th>
 					</tr>
 				</thead>
-				@foreach($users as $user)
+				@foreach($members as $member)
 				<tr>
-					<td>{{$user->last_name}}, {{$user->first_name}}</td>
-					<td class="center-text">{{$user->role->role}}</td>
-					<td class="center-text">{{$user->project13}}</td>
+					<td>{{$member->last_name}}, {{$member->first_name}}</td>
+					<td class="center-text">{{$member->role->role}}</td>
+					<td class="center-text">{{$member->project13}}</td>
 				</tr>
 				@endforeach
 			</table>

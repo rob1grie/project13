@@ -1,42 +1,42 @@
 @extends('layouts.main')
 
-@section('title', 'Edit User')
+@section('title', 'Edit Member')
 
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Edit User</h3>
+		<h3 class="panel-title">Edit Member</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('action' => ['UsersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('action' => ['MembersController@update', $member->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
-			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('username', $value=$user->username, $attributes = ['class' => 'form-control', 'name' => 'username', 'disabled']) !!}
+			{!! Form::label('membername', 'Membername', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('membername', $value=$member->membername, $attributes = ['class' => 'form-control', 'name' => 'membername', 'disabled']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('first_name', 'First Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('first_name', $value=$user->first_name, $attributes = ['class' => 'form-control', 'name' => 'first_name']) !!}
+			{!! Form::text('first_name', $value=$member->first_name, $attributes = ['class' => 'form-control', 'name' => 'first_name']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('last_name', 'Last Name', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('last_name', $value=$user->last_name, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
+			{!! Form::text('last_name', $value=$member->last_name, $attributes = ['class' => 'form-control', 'name' => 'last_name']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('email', 'Email', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('email', $value=$user->email, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
+			{!! Form::text('email', $value=$member->email, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
 		</div>
 
 		<div class="form-group form-inline">
 			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{{ Form::select('role', $roles, $user->role_id) }}
+			{{ Form::select('role', $roles, $member->role_id) }}
 		</div>
 
 		<div class="form-group form-inline">
 			{!! Form::label('organization', 'Organization', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{{ Form::select('organization', $organizations, $user->organization_id) }}
+			{{ Form::select('organization', $organizations, $member->organization_id) }}
 		</div>
 		
 		{!! Form::submit('Save Changes', $attributes = ['class' => 'btn btn-primary btn-15rem']) !!} 

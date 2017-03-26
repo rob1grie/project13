@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Member as Authenticatable;
 
-class User extends Authenticatable
+class Member extends Authenticatable
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'first_name', 'last_name', 'role_id', 'phone', 'organization_id',
+        'membername', 'email', 'password', 'first_name', 'last_name', 'role_id', 'phone', 'organization_id',
     ];
 	
     /**
@@ -36,11 +36,11 @@ class User extends Authenticatable
 		return $this->belongsTo('App\Project13');
 	}
 	
-	public function getUserId() {
-		// Returns the numeric portion of the username
-		$userId = 0;
-		preg_match_all('!\d+!', $this->username, $userId);
+	public function getMemberId() {
+		// Returns the numeric portion of the membername
+		$memberId = 0;
+		preg_match_all('!\d+!', $this->membername, $memberId);
 		
-		return $userId[0][1];
+		return $memberId[0][1];
 	}
 }

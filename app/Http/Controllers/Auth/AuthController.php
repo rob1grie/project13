@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Member;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersMembers;
 
 class AuthController extends Controller
 {
@@ -15,16 +15,16 @@ class AuthController extends Controller
     | Registration & Login Controller
     |--------------------------------------------------------------------------
     |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
+    | This controller handles the registration of new members, as well as the
+    | authentication of existing members. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersMembers, ThrottlesLogins;
 
     /**
-     * Where to redirect users after login / registration.
+     * Where to redirect members after login / registration.
      *
      * @var string
      */
@@ -50,20 +50,20 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:members',
             'password' => 'required|min:6|confirmed',
         ]);
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Create a new member instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return Member
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Member::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

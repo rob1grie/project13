@@ -4,7 +4,7 @@ Project13
 
     Click on Project13 in list to view it
 =>      Working on view of Project13. Need to work from 'create' layout for labels and indentation.
-        Will need to somehow group Users before building table
+        Will need to somehow group Members before building table
     Build editing of Project13
     Format Project13 List to group by Organization
     Provide list of Organization members that haven't been assigned to a Project13

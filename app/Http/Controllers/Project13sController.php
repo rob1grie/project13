@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Project13;
-use App\User;
+use App\Member;
 use App\Organization;
 use App\Role;
 use Illuminate\Support\Facades\DB;
@@ -55,7 +55,7 @@ class Project13sController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $users = $this->getProject13Users($request);
+        $members = $this->getProject13Members($request);
 
         // Get the selected Organization
         $orgId = $request->input('organization');
@@ -64,11 +64,11 @@ class Project13sController extends Controller {
         $nextOrdinalCount = Project13::getNextOrdinalCount($orgId);
 
         // Start transaction
-        DB::transaction(function() use ($users, $nextOrdinalCount, $orgId) {
+        DB::transaction(function() use ($members, $nextOrdinalCount, $orgId) {
 
             $project13Id = $this->saveProject13($nextOrdinalCount, $orgId);
 
-            $this->updateProject13Users($users, $project13Id);
+            $this->updateProject13Members($members, $project13Id);
         });
     }
 
@@ -81,8 +81,8 @@ class Project13sController extends Controller {
     public function show($id) {
         // Show Project13 details
         $p13 = Project13::find($id);
-        $users = $p13->users;
-        return view('project13/show', compact('p13', 'users'));
+        $members = $p13->members;
+        return view('project13/show', compact('p13', 'members'));
     }
 
     /**
@@ -119,40 +119,40 @@ class Project13sController extends Controller {
     public function addOrgProject13($id) {
 
         $organization = Organization::find($id);
-        $users = User::select(DB::raw('concat(last_name, \', \', first_name) as name, id'))
+        $members = Member::select(DB::raw('concat(last_name, \', \', first_name) as name, id'))
                 ->where('organization_id', '=', $id)
                 ->where('project13_id', '=', NULL)
                 ->orderBy('name', 'asc')
                 ->get();
-        $users = Project13sController::buildUsersSelect($users);
+        $members = Project13sController::buildMembersSelect($members);
 
-        return view('organization/create-p13', compact('organization', 'users'));
+        return view('organization/create-p13', compact('organization', 'members'));
     }
 
-    protected function buildUsersSelect($users) {
+    protected function buildMembersSelect($members) {
         // Build an array of name, id elements
         $array = array();
         $array[0] = '[Select]';
-        foreach ($users as $user) {
-            $array[$user->id] = $user->name;
+        foreach ($members as $member) {
+            $array[$member->id] = $member->name;
         }
         return $array;
     }
 
-    protected function getProject13Users($request) {
-        // Build collection of Users with their Role and blue_hat_id
+    protected function getProject13Members($request) {
+        // Build collection of Members with their Role and blue_hat_id
         $allInputs = $request->all();
 
         $keys = array_keys($allInputs);
 
-        $collectedUsers = [];
+        $collectedMembers = [];
         $roleId = '';
         $blueHatId = 0;
         $count = 0;
 
-        // Build array of Users
+        // Build array of Members
         foreach ($keys as $key) {
-            // Skip this iteration if $key's value is 0 (no user selected)
+            // Skip this iteration if $key's value is 0 (no member selected)
             if (intval($allInputs[$key]) === 0) {
                 continue;
             }
@@ -176,14 +176,14 @@ class Project13sController extends Controller {
             }
 
             if (\strpos($key, 'hat') !== \FALSE) {
-                $user = User::find($allInputs[$key]);
-                $user->blue_hat_id = $blueHatId;
-                $user->role_id = $roleId;
-                $collectedUsers[$count++] = $user;
+                $member = Member::find($allInputs[$key]);
+                $member->blue_hat_id = $blueHatId;
+                $member->role_id = $roleId;
+                $collectedMembers[$count++] = $member;
             }
         }
 
-        return $collectedUsers;
+        return $collectedMembers;
     }
 
     protected function saveProject13($nextOrdinalCount, $orgId) {
@@ -201,11 +201,11 @@ class Project13sController extends Controller {
         return $project13Id;
     }
 
-    protected function updateProject13Users($users, $project13Id) {
-        // Update users for this Project13
-        foreach ($users as $user) {
-            $user->project13_id = $project13Id;
-            $user->update();
+    protected function updateProject13Members($members, $project13Id) {
+        // Update members for this Project13
+        foreach ($members as $member) {
+            $member->project13_id = $project13Id;
+            $member->update();
         }
     }
 

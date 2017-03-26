@@ -28,8 +28,8 @@ function getXmlHttp() {
 		return xmlHttp;
 }
 
-// get user data for an organization
-function loadUsersForOrganization(orgID, appPath)
+// get member data for an organization
+function loadMembersForOrganization(orgID, appPath)
 {
 	// only continue if xmlHttp isn't void
 	if (xmlHttp)
@@ -38,7 +38,7 @@ function loadUsersForOrganization(orgID, appPath)
 		try
 		{
 			// initiate reading a file from the server
-			xmlHttp.open("GET", "/../getorgusers.php?orgID="+orgID, true);
+			xmlHttp.open("GET", "/../getorgmembers.php?orgID="+orgID, true);
 	alert('test alert');
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
@@ -53,8 +53,8 @@ function loadUsersForOrganization(orgID, appPath)
 	}
 }
 
-// get user data for an organization
-function loadAllUsers()
+// get member data for an organization
+function loadAllMembers()
 {
 	// only continue if xmlHttp isn't void
 	if (xmlHttp)
@@ -63,7 +63,7 @@ function loadAllUsers()
 		try
 		{
 			// initiate reading a file from the server
-			xmlHttp.open("GET", "/php/getallusers.php", true);
+			xmlHttp.open("GET", "/php/getallmembers.php", true);
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
 		}
@@ -110,6 +110,6 @@ function handleServerResponse()
 }
 
 
-function updateUserSelect(selectID) {
+function updateMemberSelect(selectID) {
 
 }

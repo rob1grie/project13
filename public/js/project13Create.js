@@ -1,18 +1,18 @@
 /*
- * availUsers:	Stores all Users for the Organization that haven't been selected
+ * availMembers:	Stores all Members for the Organization that haven't been selected
  *		fields:	id			The id field from the database
  *				name		Concatenation of last_name, first_name from database
  */
-var availUsers = [];
+var availMembers = [];
 
 /*
- * usedUsers:	Stores Users for the Organization that have been selected
- *		fields:	selectName	The id (and name) of the select control that has this User selected
- *				user		The User object contained in this item
- *					id		The id of the User from the database
- *					name	The name of the User, as last_name, first_name
+ * usedMembers:	Stores Members for the Organization that have been selected
+ *		fields:	selectName	The id (and name) of the select control that has this Member selected
+ *				member		The Member object contained in this item
+ *					id		The id of the Member from the database
+ *					name	The name of the Member, as last_name, first_name
  */
-var usedUsers = [];
+var usedMembers = [];
 
 /*
  * onClick handler for all the reset buttons next to the select controls
@@ -33,7 +33,7 @@ selectControls.addClass("select-width-100");
  * onChange handler for the organization select control
  */
 $('#organization').on('change', function (e) {
-// When organization changes, need to initialize the user selects
+// When organization changes, need to initialize the member selects
 	initSelectControls(parseInt(e.target.value));
 });
 
@@ -42,7 +42,7 @@ $('#organization').on('change', function (e) {
  *  onChange handler for all select controls except organization
  */
 $("select[id!='organization']").on('change', function (e) {
-// When any of the user selects changes, need to update availUsers and usedUsers
+// When any of the member selects changes, need to update availMembers and usedMembers
 	updateSelectControls(e.target);
 });
 
@@ -54,11 +54,11 @@ $("select[id!='organization']").on('change', function (e) {
  */
 function initSelectControls(orgId) {
 	var control;
-	$.get('/org-users?org_id=' + orgId, function (data) {
-		// Initialize availUsers array
-		initAvailUsers(data);
-		// Initialize usedUsers array
-		usedUsers = [];
+	$.get('/org-members?org_id=' + orgId, function (data) {
+		// Initialize availMembers array
+		initAvailMembers(data);
+		// Initialize usedMembers array
+		usedMembers = [];
 
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
@@ -66,8 +66,8 @@ function initSelectControls(orgId) {
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
 
-			availUsers.forEach(function (user) {
-				control.append('<option value=' + user.id + '>' + user.name + '</option>');
+			availMembers.forEach(function (member) {
+				control.append('<option value=' + member.id + '>' + member.name + '</option>');
 			});
 		});
 	});
@@ -78,45 +78,45 @@ function initSelectControls(orgId) {
  * Update select controls, as when a selection changes and all others must be updated
  */
 function updateSelectControls(select) {
-	// First update availUsers and usedUsers
+	// First update availMembers and usedMembers
 	updateCollections(select);
 
-	loadUserSelects();
+	loadMemberSelects();
 
-	setSelectedUsers();
+	setSelectedMembers();
 }
 
 /*
- * Update availUsers and usedUsers, to be used when updating the select controls
+ * Update availMembers and usedMembers, to be used when updating the select controls
  */
 function updateCollections(select) {
-	var user;
+	var member;
 	// First check whether selection was changed to '[Select]'
 	if (parseInt(select.value) === 0) {
-		// Restore the User referenced by 'select' to availUsers
-		user = removeUsedUser(select.name);
-		addAvailUser(user);
+		// Restore the Member referenced by 'select' to availMembers
+		member = removeUsedMember(select.name);
+		addAvailMember(member);
 	}
-	// Check whether the select control is already in usedUsers
+	// Check whether the select control is already in usedMembers
 	else if (!selectIsUsed(select.name)) {
-		// Move the User from availUsers to UsedUsers
-		addUsedUser(select);
+		// Move the Member from availMembers to UsedMembers
+		addUsedMember(select);
 	}
 	// Otherwise this select control's value was just change
-	// Remove the existing User from usedUsers, restore it to availUsers, then add the selected User to usedUsers
+	// Remove the existing Member from usedMembers, restore it to availMembers, then add the selected Member to usedMembers
 	else {
-		user = removeUsedUser(select.name);
-		addAvailUser(user);
-		addUsedUser(select);
+		member = removeUsedMember(select.name);
+		addAvailMember(member);
+		addUsedMember(select);
 	}
 }
 
 
 /*
- * Load each User select control, including the select control's selected User
- * A selected User won't be included in other select controls until that select control is changed to '[Select]'
+ * Load each Member select control, including the select control's selected Member
+ * A selected Member won't be included in other select controls until that select control is changed to '[Select]'
  */
-function loadUserSelects() {
+function loadMemberSelects() {
 	// Step through each select control
 	var selectArray = [];
 	var controlText = '';
@@ -129,17 +129,17 @@ function loadUserSelects() {
 
 		$(sc).append('<option value="0">[Select]</option>');
 
-		selectArray.forEach(function (user) {
-			var controlText = '<option value="' + user.id + '">' + user.name + "</option>'";
+		selectArray.forEach(function (member) {
+			var controlText = '<option value="' + member.id + '">' + member.name + "</option>'";
 			$(sc).append(controlText);
 		});
 
-		var user = getSelectUser(selectControl.name);
-		if (!user) {
+		var member = getSelectMember(selectControl.name);
+		if (!member) {
 			$(sc).val(0);
 		}
 		else {
-			$(sc).val(user.id);
+			$(sc).val(member.id);
 		}
 		
 	});
@@ -147,43 +147,43 @@ function loadUserSelects() {
 
 
 /*
- * Build an array of Users based on availUsers and usedUsers, 
- * including the usedUser for the current select control
+ * Build an array of Members based on availMembers and usedMembers, 
+ * including the usedMember for the current select control
  */
 function buildSelectArray(selectName) {
-	var usedUser;
+	var usedMember;
 	var selectArray = [];
 
 	if (selectIsUsed(selectName)) {
-		usedUser = getSelectUser(selectName);
-		// Initialize selectArray with the User referenced by the select control
+		usedMember = getSelectMember(selectName);
+		// Initialize selectArray with the Member referenced by the select control
 		selectArray.push({
-			id: usedUser.id,
-			name: usedUser.name
+			id: usedMember.id,
+			name: usedMember.name
 		});
 	}
 
 
-	// Add all availUsers to selectArray
-	availUsers.forEach(function (user) {
+	// Add all availMembers to selectArray
+	availMembers.forEach(function (member) {
 		selectArray.push({
-			id: user.id,
-			name: user.name
+			id: member.id,
+			name: member.name
 		});
 	});
 
-	// Sort the items in selectArray by the user.name
-	selectArray.sort(compareUsers);
+	// Sort the items in selectArray by the member.name
+	selectArray.sort(compareMembers);
 
 	return selectArray;
 }
 
 /*
- * Update availUsers, removing or adding when one is selected in a select control
+ * Update availMembers, removing or adding when one is selected in a select control
  */
-function updateAvailUsers(data) {
-	if (availUsers.length === 0) {
-		initAvailUsers(data);
+function updateAvailMembers(data) {
+	if (availMembers.length === 0) {
+		initAvailMembers(data);
 	}
 	else {
 
@@ -192,13 +192,13 @@ function updateAvailUsers(data) {
 }
 
 /*
- * Initialize availUsers, as when the organization changes
+ * Initialize availMembers, as when the organization changes
  */
-function initAvailUsers(data) {
+function initAvailMembers(data) {
 // Ensure that availItems is empty
-	availUsers = [];
+	availMembers = [];
 	for (var i = 0; i < data.length; i++) {
-		availUsers.push({
+		availMembers.push({
 			id: data[i].id,
 			name: data[i].last_name + ', ' + data[i].first_name
 		});
@@ -206,45 +206,45 @@ function initAvailUsers(data) {
 }
 
 /*
- * Add the User referenced in 'data' to availUsers and re-sort
+ * Add the Member referenced in 'data' to availMembers and re-sort
  */
-function addAvailUser(user) {
-	availUsers.push({
-		id:		user.id,
-		name:	user.name
+function addAvailMember(member) {
+	availMembers.push({
+		id:		member.id,
+		name:	member.name
 	});
 }
 
 /*
- * Remove the User referenced by 'id' from availUsers and re-sort
+ * Remove the Member referenced by 'id' from availMembers and re-sort
  */
-function removeAvailUser(id) {
-	var removedUser;
-	var user;
+function removeAvailMember(id) {
+	var removedMember;
+	var member;
 
-	for (var i = 0; i < availUsers.length; i++) {
-		user = availUsers[i];
-		if (user.id === id) {
-			var pos = availUsers.indexOf(user);
-			removedUser = availUsers.splice(pos, 1)[0];
+	for (var i = 0; i < availMembers.length; i++) {
+		member = availMembers[i];
+		if (member.id === id) {
+			var pos = availMembers.indexOf(member);
+			removedMember = availMembers.splice(pos, 1)[0];
 			break;
 		}
 	}
 
-	sortAvailUsers();
+	sortAvailMembers();
 
-	return removedUser;
+	return removedMember;
 }
 
-function sortAvailUsers() {
-	availUsers.sort(compareUsers);
+function sortAvailMembers() {
+	availMembers.sort(compareMembers);
 }
 
 
 /*
- * Compare function used to sort Users
+ * Compare function used to sort Members
  */
-function compareUsers(a, b) {
+function compareMembers(a, b) {
 	if (a.name < b.name) {
 		return -1;
 	}
@@ -255,27 +255,27 @@ function compareUsers(a, b) {
 }
 
 /*
- * Get the name from availUsers using the User ID
+ * Get the name from availMembers using the Member ID
  */
-function getAvailUserName(userId) {
-	availUsers.forEach(function (user) {
-		if (user.id === userId) {
-			return user.name;
+function getAvailMemberName(memberId) {
+	availMembers.forEach(function (member) {
+		if (member.id === memberId) {
+			return member.name;
 		}
 	});
 	return '';
 }
 
 /*
- * Determine whether the select control referenced by 'data' is in usedUsers
+ * Determine whether the select control referenced by 'data' is in usedMembers
  */
 function selectIsUsed(selectName) {
-	// Returns true if select control's name is found in usedUsers
+	// Returns true if select control's name is found in usedMembers
 	var result = false;
 
-	for(var i=0; i<usedUsers.length; i++) {
-		var usedUser = usedUsers[i];
-		if (usedUser.selectName === selectName) {
+	for(var i=0; i<usedMembers.length; i++) {
+		var usedMember = usedMembers[i];
+		if (usedMember.selectName === selectName) {
 			result = true;
 			break;
 		}
@@ -285,70 +285,70 @@ function selectIsUsed(selectName) {
 }
 
 /*
- * Initialize usedUsers to an empty array
+ * Initialize usedMembers to an empty array
  */
-function initUsedUsers() {
-	usedUsers = [];
+function initUsedMembers() {
+	usedMembers = [];
 }
 
 
 /*
- * Remove the selected User from availUsers and add to UsedUsers
+ * Remove the selected Member from availMembers and add to UsedMembers
  */
-function addUsedUser(select) {
-	// Remove selected user from availUsers ...
-	// select.value is id of User
-	var user = removeAvailUser(parseInt(select.value));
+function addUsedMember(select) {
+	// Remove selected member from availMembers ...
+	// select.value is id of Member
+	var member = removeAvailMember(parseInt(select.value));
 
-	// ... and save selected user to usedUsers ...
-	usedUsers.push({
+	// ... and save selected member to usedMembers ...
+	usedMembers.push({
 		selectName: select.name,
-		usedUser: user
+		usedMember: member
 	});
 
 }
 
 
 /*
- * Remove selected User from usedUsers and return the User
+ * Remove selected Member from usedMembers and return the Member
  */
-function removeUsedUser(selectName) {
-	var removedUser;
-	for (var i = 0; i < usedUsers.length; i++) {
-		if (usedUsers[i].selectName === selectName) {
-			removedUser = usedUsers.splice(i, 1)[0].usedUser;
+function removeUsedMember(selectName) {
+	var removedMember;
+	for (var i = 0; i < usedMembers.length; i++) {
+		if (usedMembers[i].selectName === selectName) {
+			removedMember = usedMembers.splice(i, 1)[0].usedMember;
 			break;
 		}
 	}
 
-	return removedUser;
+	return removedMember;
 }
 
 
 /*
- * Get the User referenced in the select control with 'selectName'
+ * Get the Member referenced in the select control with 'selectName'
  */
-function getSelectUser(selectName) {
-	var usedUser;
+function getSelectMember(selectName) {
+	var usedMember;
 
-	for (var i = 0; i < usedUsers.length; i++) {
-		if (usedUsers[i].selectName === selectName) {
-			usedUser = usedUsers[i].usedUser;
+	for (var i = 0; i < usedMembers.length; i++) {
+		if (usedMembers[i].selectName === selectName) {
+			usedMember = usedMembers[i].usedMember;
 			break;
 		}
 	}
 
-	return usedUser;
+	return usedMember;
 }
 
 /*
- * Set the selected User with the ID of id
+ * Set the selected Member with the ID of id
  */
-function setSelectedUsers() {
-	usedUsers.forEach(function(usedUser) {
-		var user = usedUser.usedUser;
-		var selectName = usedUser.selectName;
-		$('#' + selectName).val(user.id);
+function setSelectedMembers() {
+	usedMembers.forEach(function(usedMember) {
+		var member = usedMember.usedMember;
+		var selectName = usedMember.selectName;
+		$('#' + selectName).val(member.id);
 	});
 }
 
@@ -380,12 +380,12 @@ function getResetSelectId(btn) {
 function resetSelect(btn) {
 	var selectName = getResetSelectId(btn);
 	
-	var removedUser = removeUsedUser(selectName);
-	addAvailUser(removedUser);
+	var removedMember = removeUsedMember(selectName);
+	addAvailMember(removedMember);
 	
 	$("#" + selectName).val(0);
 	
-	loadUserSelects();
+	loadMemberSelects();
 	
 	return selectName;
 }

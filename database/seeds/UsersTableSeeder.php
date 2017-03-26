@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Member;
 
-class UsersTableSeeder extends Seeder {
+class MembersTableSeeder extends Seeder {
 
 	/**
 	 * Run the database seeds.
@@ -15,17 +15,17 @@ class UsersTableSeeder extends Seeder {
 
 		for ($i = 0; $i < 14; $i++) {
 			for ($j = 1; $j < 13; $j++) {
-				$user = new User;
-				$user->username = $faker->userName;
-				$user->password = $faker->password;
-				$user->email = $faker->email;
-				$user->first_name = $faker->firstNameMale;
-				$user->last_name = $faker->lastName;
-				$user->phone = $faker->phoneNumber;
-				$user->role_id = 0;
-				$user->organization_id = $j;
+				$member = new Member;
+				$member->membername = $faker->memberName;
+				$member->password = $faker->password;
+				$member->email = $faker->email;
+				$member->first_name = $faker->firstNameMale;
+				$member->last_name = $faker->lastName;
+				$member->phone = $faker->phoneNumber;
+				$member->role_id = 0;
+				$member->organization_id = $j;
 				
-				$user->save();
+				$member->save();
 			}
 		}
 	}

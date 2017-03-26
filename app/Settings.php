@@ -14,19 +14,19 @@ class Settings extends Model
 		if (!($setting = Settings::find(1))) {
 			// If no settings record currently exists, initialize and save one
 			$setting = new Settings;
-			$setting->next_user_id = 1;
+			$setting->next_member_id = 1;
 			$setting->save();
 		}
 		
-		return $setting->next_user_id;
+		return $setting->next_member_id;
 	}
 	
 	public static function setNextId($currentId) {
 		// Assumes that a record exists and was set in getNextId()
-		// currentId should be incremented and saved into next_user_id
+		// currentId should be incremented and saved into next_member_id
 		$setting = Settings::find(1);
 		
-		$setting->next_user_id = $currentId + 1;
+		$setting->next_member_id = $currentId + 1;
 		$setting->save();
 	}
 
