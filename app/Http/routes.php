@@ -11,7 +11,7 @@
  */
 
 Route::get('/', function () {
-	return view('welcome');
+    return view('welcome');
 });
 
 Route::resource('organizations', 'OrganizationsController');
@@ -22,13 +22,12 @@ Route::get('project13s/{org_id}/addp13', 'Project13sController@addOrgProject13')
 Route::resource('project13s', 'Project13sController');
 
 Route::get('/org-users', function() {
-	$org_id = Input::get('org_id');
-	
-	$users = App\User::where('organization_id', '=', $org_id)
-			->orderBy('last_name', 'asc')
-			->orderBy('first_name', 'asc')
-			->get();
-	
-	return Response::json($users);
-	
+    $org_id = Input::get('org_id');
+
+    $users = App\User::where('organization_id', '=', $org_id)
+            ->orderBy('last_name', 'asc')
+            ->orderBy('first_name', 'asc')
+            ->get();
+
+    return Response::json($users);
 });

@@ -13,20 +13,22 @@
         <a class="list-group-item" href="project13s/create">Add Project13</a>
     </div>
 </div>
-@stop 
+@stop
 
 @section('content')
 <h1>Project13 List</h1>
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>Organization - Project13</th>
+            <th>Organization</th>
+            <th>Project13</th>
         </tr>
     </thead>
     <tbody>
         @foreach($project13s as $project13)
         <tr>
-            <td><a href='/project13s/'>{{ $project13->organization->name }} P13-{{ $project13->ordinal_id }}</a></td>
+            <td>{{ $project13->organization->name }}</td>
+            <td><a href='/project13s/{{ $project13->id }}'>P13-{{ $project13->ordinal_count }}</a></td>
         </tr>
         @endforeach
     </tbody>

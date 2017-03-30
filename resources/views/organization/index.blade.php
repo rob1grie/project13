@@ -13,7 +13,7 @@
         <a class="list-group-item" href="organizations/create">Add Organization</a>
     </div>
 </div>
-@stop 
+@stop
 
 @section('content')
 <h1>Organizations List</h1>
@@ -28,7 +28,7 @@
         @foreach($orgs as $org)
         <tr>
             <td><a href='/organizations/{{ $org->id }}'>{{$org->name}}</a></td>
-           <td>{{$org->city}}, {{$org->state}}</td>
+            <td>{{$org->city}}, {{$org->state}}</td>
         </tr>
         @endforeach
     </tbody>
