@@ -1,0 +1,80 @@
+<?php $__env->startSection('title', 'Edit Organization'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Edit Organization</h3>
+	</div>
+	<div class="panel-body">
+		<?php echo Form::open(array('action' => ['OrganizationsController@update', $org->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')); ?>
+
+		<div class="form-group">
+			<?php echo Form::label('name', 'Name', $attributes = ['class' => 'col-md-2 control-label']); ?>
+
+			<?php echo Form::text('name', $value=$org->name, $attributes = ['class' => 'form-control', 'name' => 'name']); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::label('address1', 'Address', $attributes = ['class' => 'col-md-2 control-label']); ?>
+
+			<?php echo Form::text('address1', $value=$org->address1, $attributes = ['class' => 'form-control', 'name' => 'address1']); ?>
+
+		</div>
+
+		<div class="form-group">
+			<?php echo Form::label('address2', 'Address (2)', $attributes = ['class' => 'col-md-2 control-label']); ?>
+
+			<?php echo Form::text('address2', $value=$org->address2, $attributes = ['class' => 'form-control', 'name' => 'address2']); ?>
+
+		</div>
+
+		<div class="form-group form-inline">
+			<?php echo Form::label('city', 'City'); ?>
+
+			<?php echo Form::text('city', 
+			$value=$org->city, 
+			$attributes = ['class' => 'form-control', 'name' => 'city', 'size' => 30]); ?>
+
+
+			<?php echo Form::label('state', 'State'); ?>
+
+			<?php echo e(Form::select('state', $states, $org->state)); ?>
+
+
+			<?php echo Form::label('zipcode', 'Zip Code'); ?>
+
+			<?php echo Form::text('zipcode', 
+			$value=$org->zipcode, 
+			$attributes = ['class' => 'form-control', 'name' => 'zipcode', 'size' => 12]); ?>
+
+		</div>
+
+		<div class="form-group form-inline">
+			<?php echo Form::label('main_phone', 'Phone (Main)', $attributes = ['class' => 'col-md-2 control-label']); ?>
+
+			<?php echo Form::text('main_phone',
+			$value=$org->main_phone,
+			$attributes = ['class' => 'form-control', 'name' => 'main_phone', 'size' => 12]); ?>
+
+		</div>
+
+		<div class="form-group form-inline">
+			<?php echo Form::label('alt_phone', 'Phone (Alternate)', $attributes = ['class' => 'col-md-2 control-label']); ?>
+
+			<?php echo Form::text('alt_phone',
+			$value=$org->alt_phone,
+			$attributes = ['class' => 'form-control', 'name' => 'alt_phone', 'size' => 12]); ?>
+
+
+		</div>
+
+		<?php echo Form::submit('Save Changes', $attributes = ['class' => 'btn btn-primary btn-15rem']); ?> 
+		<a class="btn btn-warning btn-15rem" href="<?php echo e(URL::previous()); ?>">Cancel</a>
+
+		<?php echo Form::close(); ?>
+
+	</div>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
