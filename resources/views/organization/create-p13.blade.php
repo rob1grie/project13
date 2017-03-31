@@ -4,7 +4,7 @@
 <script type="text/javascript" src="/js/ajaxJS.js"></script>
 <script type="text/javascript" src="/js/json2.js"></script>
 <script>
-var orgid = <?php echo $organization->id; ?>;
+var orgid = {{ $organization->id }}
 function process() {
 	loadUsersForOrganization(<?php echo $organization->id . ', "' . app_path() . '"'; ?>);
 }

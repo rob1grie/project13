@@ -39,7 +39,6 @@ function loadUsersForOrganization(orgID, appPath)
 		{
 			// initiate reading a file from the server
 			xmlHttp.open("GET", "/../getorgusers.php?orgID="+orgID, true);
-	alert('test alert');
 			xmlHttp.onreadystatechange = handleRequestStateChange;
 			xmlHttp.send(null);
 		}

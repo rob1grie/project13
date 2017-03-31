@@ -16,7 +16,7 @@
 		
 	</head>
 
-	<body>
+	<body onload="process()">
 
 		<nav class="navbar navbar-inverse">
 			<div class="container">

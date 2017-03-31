@@ -69,7 +69,9 @@
 					<td>{{$user->last_name}}, {{$user->first_name}}</td>
 					<td class="center-text">{{$user->role->role}}</td>
 					<td class="center-text">
-						P13-{{$user->project13["ordinal_count"]}}
+						@if ($user->project13['ordinal_count'])
+							P13-{{$user->project13["ordinal_count"]}}
+						@endif
 					</td>
 				</tr>
 				@endforeach
