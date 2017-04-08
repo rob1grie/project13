@@ -5,7 +5,14 @@
 <script type="text/javascript" src="/js/json2.js"></script>
 <script src="/js/project13Create.js" type="text/javascript"></script>
 <script>
+<<<<<<< HEAD
 var orgid = <?php echo $organization->id; ?>;
+=======
+var orgid = {{ $organization->id }}
+function process() {
+	loadUsersForOrganization(<?php echo $organization->id . ', "' . app_path() . '"'; ?>);
+}
+>>>>>>> d3654cff8d33e84877baa84c71b8c3a9bcd70a9e
 </script>
 @stop
 

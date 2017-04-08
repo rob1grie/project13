@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+<?php 
+	// TODO Fix format of form. Address and phone numbers run together
+?>
 @section('title', 'Add Organization')
 
 @section('content')

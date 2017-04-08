@@ -1,5 +1,6 @@
 <?php
-
+// TODO How to scope this statement?
+// At line 10 App\User isn't found
 use App\User;
 
 header('Content-Type: text/json');

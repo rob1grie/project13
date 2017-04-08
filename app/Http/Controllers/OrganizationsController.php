@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use App\Organization;
 use App\State;
-use App\User;
 
 class OrganizationsController extends Controller {
 
