@@ -119,12 +119,12 @@ class Project13sController extends Controller {
     public function addOrgProject13($id) {
 
         $organization = Organization::find($id);
-        $users = User::select(DB::raw('concat(last_name, \', \', first_name) as name, id'))
-                ->where('organization_id', '=', $id)
-                ->where('project13_id', '=', NULL)
-                ->orderBy('name', 'asc')
-                ->get();
-        $users = Project13sController::buildUsersSelect($users);
+        $users = Project13sController::buildUsersSelect(
+					User::select(DB::raw('concat(last_name, \', \', first_name) as name, id'))
+					->where('organization_id', '=', $id)
+					->where('project13_id', '=', NULL)
+					->orderBy('name', 'asc')
+					->get());
 
         return view('organization/create-p13', compact('organization', 'users'));
     }

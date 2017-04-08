@@ -16,7 +16,13 @@
 		
 	</head>
 
-	<body>
+	@if(isset($onLoadScript))
+		$onLoad = 'onLoad=' . $onLoadScript;
+	@else
+		$onLoad = '';
+	@endif
+
+	<body {{ $onLoad }}>
 
 		<nav class="navbar navbar-inverse">
 			<div class="container">
