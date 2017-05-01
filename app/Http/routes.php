@@ -31,3 +31,15 @@ Route::get('/org-users', function() {
 
     return Response::json($users);
 });
+
+Route::get('/org-users-no-p13', function() {
+    $org_id = Input::get('org_id');
+
+    $users = App\User::where('organization_id', '=', $org_id)
+			->where('project13_id', '=', NULL)
+            ->orderBy('last_name', 'asc')
+            ->orderBy('first_name', 'asc')
+            ->get();
+
+    return Response::json($users);	
+});

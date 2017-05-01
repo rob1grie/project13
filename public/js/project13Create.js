@@ -47,30 +47,36 @@ $("select[id!='organization']").on('change', function (e) {
 });
 
 
-
-
 /*
  * Initialize the select controls, as when a different organization is selected
+ * isOrgP13 flags that the controls are on an Organization's Create Project 13 form
  */
-function initSelectControls(orgId) {
+function initSelectControls(orgId, isOrgP13 = false) {
 	var control;
-	$.get('/org-users?org_id=' + orgId, function (data) {
+	var getRoute = isOrgP13 ? '/org-users-no-p13?org_id=' : '/org-users?org_id=';
+	$.get(getRoute + orgId, function (data) {
 		// Initialize availUsers array
 		initAvailUsers(data);
 		// Initialize usedUsers array
 		usedUsers = [];
-
 		$.each(selectControls, function (index, controlId) {
 			control = $('#' + controlId.name);
 
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
-
 			availUsers.forEach(function (user) {
-				control.append('<option value=' + user.id + '>' + user.name + '</option>');
+				var option = '<option value=' + user.id + '>' + user.name + '</option>';
+				control.append(option);
 			});
 		});
 	});
+}
+
+/*
+ *  Initialize the select controls for an Organization's create-p13 form
+ *  Receives parameter 'data' which is JSON data of all Users for the Organization
+ */
+function initOrgSelectControls(data) {
 }
 
 
