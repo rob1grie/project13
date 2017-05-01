@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
 //			['role' => 'Yellow Hat']
 //		]);
 //		$this->call(OrganizationsTableSeeder::class);
-//		$this->call(UsersTableSeeder::class);
+		$this->call(UsersTableSeeder::class);
     }
 }

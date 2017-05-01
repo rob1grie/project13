@@ -6,8 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddBlueHatIdToUsers' => $baseDir . '/database/migrations/2016_10_20_144906_add_blue_hat_id_to_users.php',
     'AddFieldsToUsersTable' => $baseDir . '/database/migrations/2016_06_01_122759_add_fields_to_users_table.php',
+    'AddNextProject13IdToSettings' => $baseDir . '/database/migrations/2017_05_01_091958_add_next_project13_id_to_settings.php',
     'AddOrgIdToUsersTable' => $baseDir . '/database/migrations/2016_06_01_135502_add_org_id_to_users_table.php',
+    'AddProjectIdToUsersTable' => $baseDir . '/database/migrations/2016_06_13_130019_add_project_id_to_users_table.php',
+    'ChangeOrdinalIdToOrdinalCount' => $baseDir . '/database/migrations/2016_10_20_145845_change_ordinal_id_to_ordinal_count.php',
     'CreateOrganizationsTable' => $baseDir . '/database/migrations/2016_05_24_155055_create_organizations_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProject13sTable' => $baseDir . '/database/migrations/2016_06_07_153616_create_project13s_table.php',
@@ -87,6 +91,8 @@ return array(
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+    'MoveAdminToOrganization' => $baseDir . '/database/migrations/2016_10_19_192259_move_admin_to_organization.php',
+    'MoveOrgAdminIdToOrganization' => $baseDir . '/database/migrations/2016_10_20_134555_move_org_admin_id_to_organization.php',
     'OrganizationsTableSeeder' => $baseDir . '/database/seeds/OrganizationsTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
