@@ -10,7 +10,7 @@
         </h3>
     </div>
     <div class="list-group">
-        <a class="list-group-item" href="/users/create">Add User</a>
+        <a class="list-group-item" href="users/create">Add User</a>
     </div>
 </div>
 @stop 
