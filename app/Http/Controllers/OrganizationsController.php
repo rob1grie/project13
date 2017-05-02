@@ -12,7 +12,10 @@ class OrganizationsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $orgs = Organization::all();
+        $orgs = Organization::orderBy('name')
+				->orderBy('state')
+				->orderBy('city')
+				->get();
         return view('organization/index', compact('orgs'));
     }
 

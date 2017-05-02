@@ -8,38 +8,37 @@ class Settings extends Model {
 	protected $table = 'settings';
 	protected $hidden = [];
 
+	// Maintain a running count for anonymous user IDs
 	public static function getNextId() {
 		if (!($setting = Settings::find(1))) {
-			$setting = initSettings();
+			$setting = Settings::initSettings();
 		}
 
-		return $setting->next_user_id;
-	}
-
-	public static function setNextId($currentId) {
-		// Assumes that a record exists and was set in getNextId()
-		// currentId should be incremented and saved into next_user_id
-		$setting = Settings::find(1);
-
-		$setting->next_user_id = $currentId + 1;
+		// Save the current next_user_id
+		$nextId = $setting->next_user_id;
+		
+		// Increment the current value and save it back to the settings table
+		$setting->next_user_id = $nextId + 1;
 		$setting->save();
+		
+		return $nextId;
 	}
 
 	public static function getNextProject13Id() {
 		if (!($setting = Settings::find(1))) {
-			$setting = initSetting();
+			$setting = Settings::initSettings();
 		}
+		
+		// Save the current next_project13_id
+		$nextId = $setting->next_project13_id;
+		
+		// Increment and save the current value
+		$setting->next_project13_id = $nextId + 1;
+		$setting->save();
 
-		return $setting->next_project13_id;
+		return $nextId;
 	}
 	
-	public static function setNextProject13Id() {
-		$setting = Settings::find(1);
-		
-		$setting->next_project13_id++;
-		$setting->save();
-	}
-
 	protected static function initSettings() {
 		$setting = new Settings;
 		$setting->next_user_id = 1;

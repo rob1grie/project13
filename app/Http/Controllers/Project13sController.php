@@ -16,7 +16,11 @@ class Project13sController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		$project13s = Project13::all();
+		$project13s = Project13::with(['organization' => function ($query) {
+						$query->orderBy('name');
+					}])->get();
+//		$project13s = Project13::orderBy('organization')
+//				->get();
 		return view('project13/index', compact('project13s'));
 	}
 
@@ -61,13 +65,10 @@ class Project13sController extends Controller {
 		// Get the selected Organization
 		$orgId = $request->input('organization');
 
-		// Get the next ordinal_count
-		$nextOrdinalCount = Project13::getNextOrdinalCount($orgId);
-
 		// Start transaction
-		DB::transaction(function() use ($users, $nextOrdinalCount, $orgId) {
+		DB::transaction(function() use ($users, $orgId) {
 
-			$project13Id = $this->saveProject13($nextOrdinalCount, $orgId);
+			$project13Id = $this->saveProject13($orgId);
 
 			$this->updateProject13Users($users, $project13Id);
 		});
@@ -194,13 +195,13 @@ class Project13sController extends Controller {
 		return $collectedUsers;
 	}
 
-	protected function saveProject13($nextOrdinalCount, $orgId) {
+	protected function saveProject13($orgId) {
 		// Save the Project13
 		$project13Id = 0;
 
 		$project13 = new Project13();
 		$project13->organization_id = $orgId;
-		$project13->ordinal_count = $nextOrdinalCount;
+		$project13->ordinal_count = \App\Settings::getNextProject13Id();
 
 		if ($project13->save()) {
 			$project13Id = $project13->getProject13Id();
