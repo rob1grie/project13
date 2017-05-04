@@ -17,6 +17,10 @@ class Organization extends Model
 		return $this->hasMany('App\User');
 	}
 	
+	public function usersSorted() {
+		return $this->hasMany('App\User')->orderBy('last_name')->orderBy('first_name');
+	}
+	
 	public function project13s() {
 		return $this->hasMany('App\Project13');
 	}

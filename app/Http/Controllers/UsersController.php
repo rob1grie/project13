@@ -27,13 +27,10 @@ class UsersController extends Controller {
 	public function create() {
 		$username = 'p13man-' . \App\Settings::getNextId();
 		
-		$roles = Role::lists('role', 'id');
-		$roles->prepend('[Select user role]', 0);
-
 		$organizations = Organization::lists('name', 'id')->sortBy('name');
 		$organizations->prepend('[Select user\'s organization]', 0);
 
-		return view('user/create', compact('username', 'roles', 'organizations'));
+		return view('user/create', compact('username', 'organizations'));
 	}
 
 	/**
@@ -50,7 +47,8 @@ class UsersController extends Controller {
 		$user->first_name = $request->input('first_name');
 		$user->last_name = $request->input('last_name');
 		$user->email = $request->input('email');
-		$user->role_id = $request->input('role');
+		$user->role_id = 0;										// Initial Role is [None] until added to a Project13
+		$user->password = bcrypt(User::generatePassword());
 		$user->organization_id = $request->input('organization');
 		$user->save();
 

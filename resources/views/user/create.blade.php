@@ -30,13 +30,6 @@
 			{!! Form::text('email', $value=null, $attributes = ['class' => 'form-control', 'name' => 'email']) !!}
 		</div>
 
-		<!--TODO Initial temporary password will be random and emailed to the user for them to reset-->
-
-		<div class="form-group form-inline">
-			{!! Form::label('role', 'Role', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{{ Form::select('role', $roles) }}
-		</div>
-
 		<div class="form-group form-inline">
 			{!! Form::label('organization', 'Organization', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{{ Form::select('organization', $organizations) }}
