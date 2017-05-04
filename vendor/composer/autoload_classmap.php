@@ -92,7 +92,6 @@ return array(
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'MoveAdminToOrganization' => $baseDir . '/database/migrations/2016_10_19_192259_move_admin_to_organization.php',
-    'MoveOrgAdminIdToOrganization' => $baseDir . '/database/migrations/2016_10_20_134555_move_org_admin_id_to_organization.php',
     'OrganizationsTableSeeder' => $baseDir . '/database/seeds/OrganizationsTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
