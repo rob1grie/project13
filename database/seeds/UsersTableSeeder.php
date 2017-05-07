@@ -17,12 +17,12 @@ class UsersTableSeeder extends Seeder {
 			for ($j = 1; $j < 11; $j++) {
 				$user = new User;
 				$user->username = $faker->userName;
-				$user->password = $faker->password;
+				$user->password = bcrypt('password');
 				$user->email = $faker->email;
 				$user->first_name = $faker->firstNameMale;
 				$user->last_name = $faker->lastName;
 				$user->phone = $faker->phoneNumber;
-				$user->role_id = 0;
+				$user->role_id = 1;
 				$user->organization_id = $j;
 				
 				$user->save();

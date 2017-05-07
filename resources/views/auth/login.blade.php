@@ -8,11 +8,11 @@
 		<h3 class="panel-title">Add User</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('url' => '/auth/login', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('url' => '/login', 'enctype' => 'multipart/form-data')) !!}
 
 		<div class="form-group form-inline">
-			{!! Form::label('email', 'Email', $attributes = ['class' => 'col-md-2 control-label']) !!}
-			{!! Form::text('email') !!}
+			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
+			{!! Form::text('username') !!}
 		</div>
 
 		<div class="form-group form-inline">

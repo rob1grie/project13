@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 //        DB::table('roles')->insert([
+//			['role' => '[None]'],
 //			['role' => 'District Administrator'],
 //			['role' => 'Organization Administrator'],
 //			['role' => 'Black Hat'],
