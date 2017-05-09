@@ -137,6 +137,7 @@ return [
 		App\Providers\AuthServiceProvider::class,
 		App\Providers\EventServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
+		Zizaco\Entrust\EntrustServiceProvider::class,
 	],
 	/*
 	  |--------------------------------------------------------------------------
@@ -183,5 +184,6 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 		'Input' => Illuminate\Support\Facades\Input::class,
+		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 	],
 ];
