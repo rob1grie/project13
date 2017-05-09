@@ -18,11 +18,15 @@ class AuthController extends Controller {
 	
 	public function postLogin(Request $request) {
 		if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-			return 'authenticated';
+			return Auth::user();
 		}
 		else {
 			return 'not authenticated';
 		}
+	}
+	
+	public function getLogout() {
+		Auth::logout();
 	}
 	
 }
