@@ -2,6 +2,7 @@
 <?php 
 	// TODO Fix format of form. Address and phone numbers run together
 ?>
+
 @section('title', 'Add Organization')
 
 @section('content')
@@ -57,4 +58,11 @@
 		{!! Form::close() !!}
 	</div>
 </div>
+@stop
+
+@section('script')
+<script type="text/javascript">
+	function process() {
+	}
+</script>
 @stop

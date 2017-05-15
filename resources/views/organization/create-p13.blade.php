@@ -1,23 +1,5 @@
 @extends('layouts.main')
 
-@section('script')
-<script type="text/javascript" src="/js/ajaxJS.js"></script>
-<script type="text/javascript" src="/js/json2.js"></script>
-<script src="/js/project13Create.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-	window.onload = loadControls;
-
-	function loadControls() {
-		var id = <?php echo $organization->id; ?>;
-		initSelectControls(id, true);
-	}
-	
-	function process() {
-	}
-</script>
-@stop
-
 @section('title', 'Add Project13')
 
 @section('content')
@@ -41,3 +23,22 @@
 	</div>
 </div>
 @stop
+
+@section('script')
+<script type="text/javascript" src="/js/ajaxJS.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+<script src="/js/project13Create.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	window.onload = loadControls;
+
+	function loadControls() {
+		var id = <?php echo $organization->id; ?>;
+		initSelectControls(id, true);
+	}
+	
+	function process() {
+	}
+</script>
+@stop
+

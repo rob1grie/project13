@@ -34,7 +34,7 @@
                     @foreach($users as $user)
                     <tr>
                         <td>{{ $user->last_name}}, {{ $user->first_name }}</td>
-                        <td>{{ $user->role->role}} ({{ $user->blue_hat_id }})</td>
+                        <td>{{ $user->role->display_name}} ({{ $user->blue_hat_id }})</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -43,3 +43,8 @@
     </div>
 </div>
 @stop
+
+@section('script')
+<script type="text/javascript">	function process() {}</script>
+@stop
+

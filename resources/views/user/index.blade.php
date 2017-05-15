@@ -31,10 +31,15 @@
         <tr>
             <td><a href='/users/{{ $user->id }}'>{{ $user->last_name}}, {{ $user->first_name }}</a></td>
 			<td>{{ $user->username }}</td>
-			<td>{{ $user->role->role }}</td>
+			<td>{{ $user->role->display_name }}</td>
 			<td>{{ $user->organization->name }}, {{ $user->organization->city }}, {{ $user->organization->state }}</td>
         </tr>
         @endforeach
     </tbody>
 </table>
 @stop
+
+@section('script')
+<script type="text/javascript">	function process() {}</script>
+@stop
+
