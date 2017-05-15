@@ -50,3 +50,23 @@ div .button-row {
     padding-left: 20px;
     margin: 0 0;
 }
+
+/* Sidebar menu */
+
+.panel-subheading {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	border-width: 0 0 1px 0;
+	border-radius: 0;
+	border-bottom-color: #337ab7;
+}
+
+.panel-subheading-title {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	
+}
+
+.sub-item {
+	padding-left: 30px;
+}

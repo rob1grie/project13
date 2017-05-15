@@ -10,9 +10,12 @@
         </h3>
     </div>
     <div class="list-group">
-        <a class="list-group-item" href="create">Add Project13</a>
-        <a class="list-group-item" href="{{ $p13->id }}/edit">Edit Project13</a>
-        <a class="list-group-item" href="/project13s/">Return to List</a>
+        <a class="list-group-item" href="{{ $p13->id }}/edit">Edit This Project13</a>
+        <a class="list-group-item" href="/project13s/">Return to Project 13 List</a>
+		<div class="panel panel-info panel-subheading">
+			<h5 class="panel-heading panel-subheading-title">Add Project13</h5>
+			<a class="list-group-item sub-item" href="create">For Another Organization</a>
+		</div>
     </div>
 </div>
 @stop

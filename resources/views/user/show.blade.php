@@ -12,7 +12,7 @@
     <div class="list-group">
         <a class="list-group-item" href="create">Add User</a>
         <a class="list-group-item" href="{{ $user->id }}/edit">Edit User</a>
-        <a class="list-group-item" href="/users/">Return to List</a>
+        <a class="list-group-item" href="/users/">Return to Member List</a>
     </div>
 </div>
 @stop 
