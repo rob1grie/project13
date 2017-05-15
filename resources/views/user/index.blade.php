@@ -38,3 +38,8 @@
     </tbody>
 </table>
 @stop
+
+@section('script')
+<script type="text/javascript">	function process() {}</script>
+@stop
+

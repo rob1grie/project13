@@ -28,5 +28,5 @@
 
 @section('script')
 <script src="/js/project13Create.js" type="text/javascript"></script>
-
+<script type="text/javascript">	function process() {}</script>
 @stop
