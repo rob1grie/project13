@@ -47,10 +47,11 @@ class UsersController extends Controller {
 		$user->first_name = $request->input('first_name');
 		$user->last_name = $request->input('last_name');
 		$user->email = $request->input('email');
-		$user->role_id = 0;										// Initial Role is [None] until added to a Project13
+		$user->role_id = 1;										// Initial Role is [None] until added to a Project13
 		$user->password = bcrypt(User::generatePassword());
 		$user->organization_id = $request->input('organization');
 		$user->save();
+		\App\Settings::saveNextId($user->username);
 
 		return \Redirect::route('users.index')->with('message', 'User Added');
 	}
