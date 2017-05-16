@@ -14,6 +14,7 @@
         <a class="list-group-item" href="/project13s/">Return to Project 13 List</a>
 		<div class="panel panel-info panel-subheading">
 			<h5 class="panel-heading panel-subheading-title">Add Project13</h5>
+			<a class="list-group-item sub-item" href="/project13s/{{ $p13->organization_id }}/addp13">For This Organization</a>
 			<a class="list-group-item sub-item" href="create">For Another Organization</a>
 		</div>
     </div>
