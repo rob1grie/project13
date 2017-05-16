@@ -51,6 +51,10 @@ div .button-row {
     margin: 0 0;
 }
 
+.error {
+	color: red;
+}
+
 /* Sidebar menu */
 
 .panel-subheading {

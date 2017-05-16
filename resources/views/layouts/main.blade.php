@@ -33,7 +33,7 @@
 					@endif
 					
 					@foreach($errors->all() as $error)
-					<p>{{ $error }}</p>
+					<p class="error">{{ $error }}</p>
 					@endforeach
 
 					@yield('content')

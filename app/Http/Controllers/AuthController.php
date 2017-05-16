@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
 use Auth;
 
 class AuthController extends Controller {
@@ -21,12 +16,13 @@ class AuthController extends Controller {
 			return Auth::user();
 		}
 		else {
-			return 'not authenticated';
+			return redirect('login')->withErrors(['error' => 'Invalid username or password']);
 		}
 	}
 	
 	public function getLogout() {
 		Auth::logout();
+		return view('auth/login');
 	}
 	
 }
