@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
-@section('title', 'Add User')
+@section('title', 'Add Member')
 
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Add User</h3>
+		<h3 class="panel-title">Add Member</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('action' => 'UsersController@store', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('action' => 'MembersController@store', 'enctype' => 'multipart/form-data')) !!}
 
 		<div class="form-group form-inline">
 			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}

@@ -35,10 +35,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($members as $member)
                     <tr>
-                        <td>{{ $user->last_name}}, {{ $user->first_name }}</td>
-                        <td>{{ $user->role->display_name}} ({{ $user->blue_hat_id }})</td>
+                        <td>{{ $member->last_name}}, {{ $member->first_name }}</td>
+                        <td>{{ $member->role->display_name}} ({{ $member->blue_hat_id }})</td>
                     </tr>
                     @endforeach
                 </tbody>

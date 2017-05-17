@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
-@section('title', 'Edit User')
+@section('title', 'Edit Member')
 
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Edit User</h3>
+		<h3 class="panel-title">Edit Member</h3>
 	</div>
 	<div class="panel-body">
-		{!! Form::open(array('action' => ['UsersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
+		{!! Form::open(array('action' => ['MembersController@update', $user->id], 'method' => 'PUT', 'enctype' => 'multipart/form-data')) !!}
 		<div class="form-group">
 			{!! Form::label('username', 'Username', $attributes = ['class' => 'col-md-2 control-label']) !!}
 			{!! Form::text('username', $value=$user->username, $attributes = ['class' => 'form-control', 'name' => 'username', 'disabled']) !!}

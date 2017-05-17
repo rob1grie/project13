@@ -13,12 +13,12 @@ class Organization extends Model
 	
 	protected $hidden = [];
 
-	public function users() {
-		return $this->hasMany('App\User');
+	public function members() {
+		return $this->hasMany('App\Member');
 	}
 	
-	public function usersSorted() {
-		return $this->hasMany('App\User')->orderBy('last_name')->orderBy('first_name');
+	public function membersSorted() {
+		return $this->hasMany('App\Member')->orderBy('last_name')->orderBy('first_name');
 	}
 	
 	public function project13s() {

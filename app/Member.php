@@ -4,7 +4,7 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
 
-class User extends Authenticatable {
+class Member extends Authenticatable {
     use LaratrustUserTrait;
 	
 	protected $table = 'members';

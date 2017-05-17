@@ -59,12 +59,12 @@ class OrganizationsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        // Show Organization details, along with list of users / Project 13s
+        // Show Organization details, along with list of members / Project 13s
         $org = Organization::find($id);
-		$users = $org->usersSorted;
-//        $users = $org->users;
+		$members = $org->membersSorted;
+//        $members = $org->members;
         $project13s = $org->project13s;
-        return view('organization/show', compact('org', 'users', 'project13s'));
+        return view('organization/show', compact('org', 'members', 'project13s'));
     }
 
     /**

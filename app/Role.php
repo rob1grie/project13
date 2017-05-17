@@ -6,8 +6,8 @@ use Laratrust\LaratrustRole;
 
 class Role extends LaratrustRole
 {
-	public function users() {
-		return $this->hasMany('App\User');
+	public function members() {
+		return $this->hasMany('App\Member');
 	}
 	
 	public static function getRoleId($role) {

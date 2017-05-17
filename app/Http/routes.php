@@ -16,32 +16,32 @@ Route::get('/', function () {
 
 Route::resource('organizations', 'OrganizationsController');
 
-Route::resource('users', 'UsersController');
+Route::resource('members', 'MembersController');
 
 Route::get('project13s/{org_id}/addp13', 'Project13sController@addOrgProject13');
 Route::resource('project13s', 'Project13sController');
 
-Route::get('/org-users', function() {
+Route::get('/org-members', function() {
     $org_id = Input::get('org_id');
 
-    $users = App\User::where('organization_id', '=', $org_id)
+    $members = App\Member::where('organization_id', '=', $org_id)
             ->orderBy('last_name', 'asc')
             ->orderBy('first_name', 'asc')
             ->get();
 
-    return Response::json($users);
+    return Response::json($members);
 });
 
-Route::get('/org-users-no-p13', function() {
+Route::get('/org-members-no-p13', function() {
     $org_id = Input::get('org_id');
 
-    $users = App\User::where('organization_id', '=', $org_id)
+    $members = App\Member::where('organization_id', '=', $org_id)
 			->where('project13_id', '=', NULL)
             ->orderBy('last_name', 'asc')
             ->orderBy('first_name', 'asc')
             ->get();
 
-    return Response::json($users);	
+    return Response::json($members);	
 });
 
 // Auth routes

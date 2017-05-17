@@ -5,7 +5,7 @@
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<h3 class="panel-title">Add User</h3>
+		<h3 class="panel-title">Add Member</h3>
 	</div>
 	<div class="panel-body">
 		{!! Form::open(array('url' => '/login', 'enctype' => 'multipart/form-data')) !!}
