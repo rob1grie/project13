@@ -74,7 +74,7 @@ class MembersController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id) {
-		$roles = Role::lists('role', 'id');
+		$roles = Role::lists('name', 'id');
 		$roles->prepend('[Select member role]', 0);
 
 		$organizations = Organization::lists('name', 'id')->sortBy('name');

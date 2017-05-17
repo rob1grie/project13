@@ -28,7 +28,7 @@
             <div class="col-md-9">{{ $member->email }}</div>
 			
             <div class="col-md-2 control-label">Role</div>
-            <div class="col-md-9">{{ $member->role->role }}&nbsp;</div>
+            <div class="col-md-9">{{ $member->role->display_name }}&nbsp;</div>
             <div class="col-md-2 control-label">Organization</div>
             <div class="col-md-9">{{ $member->organization->name }}&nbsp;</div>
         </div>
