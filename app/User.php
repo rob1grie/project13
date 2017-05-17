@@ -6,6 +6,8 @@ use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable {
     use LaratrustUserTrait;
+	
+	protected $table = 'members';
 
 	/**
 	 * The attributes that are mass assignable.

@@ -12,7 +12,7 @@ class RenameUsersToMembers extends Migration
      */
     public function up()
     {
-        //
+        Schema::rename('users', 'members');
     }
 
     /**
@@ -22,6 +22,6 @@ class RenameUsersToMembers extends Migration
      */
     public function down()
     {
-        //
+        Schema::rename('members', 'users');
     }
 }
