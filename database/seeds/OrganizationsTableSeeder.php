@@ -14,6 +14,8 @@ class OrganizationsTableSeeder extends Seeder
     {
 		$faker = Faker\Factory::create();
 		
+		DB::statement('ALTER TABLE organizations AUTO_INCREMENT=1');
+		
         for ($i = 0; $i < 10; $i++) {
 			$org = new Organization;
 			$org->name = $faker->company;
