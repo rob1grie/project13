@@ -18,7 +18,7 @@ class Organization extends Model
 	}
 	
 	public function membersSorted() {
-		return $this->hasMany('App\Member')->orderBy('last_name')->orderBy('first_name');
+		return $this->hasMany('App\Member')->orderBy('project13_id')->orderBy('last_name')->orderBy('first_name');
 	}
 	
 	public function project13s() {
