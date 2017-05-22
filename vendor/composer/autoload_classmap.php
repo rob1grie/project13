@@ -15,7 +15,6 @@ return array(
     'CreateOrganizationsTable' => $baseDir . '/database/migrations/2016_05_24_155055_create_organizations_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProject13sTable' => $baseDir . '/database/migrations/2016_06_07_153616_create_project13s_table.php',
-    'CreateRolesTable' => $baseDir . '/database/migrations/2016_05_27_161811_create_roles_table.php',
     'CreateSettingsTable' => $baseDir . '/database/migrations/2016_06_03_202646_create_settings_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
@@ -99,6 +98,7 @@ return array(
     'Laratrust\\MigrationCommand' => $vendorDir . '/santigarcor/laratrust/src/commands/MigrationCommand.php',
     'Laratrust\\SetupCommand' => $vendorDir . '/santigarcor/laratrust/src/commands/SetupCommand.php',
     'Laratrust\\UpgradeCommand' => $vendorDir . '/santigarcor/laratrust/src/commands/UpgradeCommand.php',
+    'MembersTableSeeder' => $baseDir . '/database/seeds/MembersTableSeeder.php',
     'MoveAdminToOrganization' => $baseDir . '/database/migrations/2016_10_19_192259_move_admin_to_organization.php',
     'OrganizationsTableSeeder' => $baseDir . '/database/seeds/OrganizationsTableSeeder.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
@@ -539,5 +539,4 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
-    'MembersTableSeeder' => $baseDir . '/database/seeds/MembersTableSeeder.php',
 );

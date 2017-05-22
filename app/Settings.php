@@ -14,15 +14,11 @@ class Settings extends Model {
 			$setting = Settings::initSettings();
 		}
 
-		// Save the current next_user_id
-		$nextId = $setting->next_user_id;
-		
-		// Increment the current value and save it back to the settings table
-		$setting->next_user_id = $nextId + 1;
-		
-		return $nextId;
+		// Return the current next_user_id
+		return $setting->next_user_id;
 	}
 	
+	// Receives the current Username, extracts the numeric component, incrementt it and saves it as the next User ID
 	public static function saveNextId($username) {
 		if (!($setting = Settings::find(1))) {
 			$setting = Settings::initSettings();
@@ -39,21 +35,17 @@ class Settings extends Model {
 			$setting = Settings::initSettings();
 		}
 		
-		// Save the current next_project13_id
-		$nextId = $setting->next_project13_id;
-		
-		// Increment and save the current value
-		$setting->next_project13_id = $nextId + 1;
-
-		return $nextId;
+		// Return the current next_project13_id
+		return $setting->next_project13_id;
 	}
 	
+	// Receives the current Project 13 ID, increments it and saves it as the next Project 13 ID
 	public static function saveNextProject13Id($id) {
 		if (!($setting = Settings::find(1))) {
 			$setting = Settings::initSettings();
 		}
 		
-		$setting->next_project13_id = $id;
+		$setting->next_project13_id = $id + 1;
 		$setting->save();
 	}
 	
