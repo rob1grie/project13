@@ -8,7 +8,7 @@ use App\Organization;
 class MembersController extends Controller {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the Members.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -20,7 +20,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new Member.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -34,7 +34,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created Member in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
@@ -57,7 +57,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Display the specified Member.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
@@ -68,7 +68,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Show the form for editing the specified Member.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
@@ -85,7 +85,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified Member in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -106,7 +106,7 @@ class MembersController extends Controller {
 	}
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Remove the specified Member from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response

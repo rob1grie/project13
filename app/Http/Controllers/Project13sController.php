@@ -74,9 +74,12 @@ class Project13sController extends Controller {
 			
 			\App\Settings::saveNextProject13Id($project13Id);
 		});
+		
+		// If requesting form contains the hidden field org_p13, it was creating a Project 13 from an Organization's view
 		if ($request->input('org_p13')) {
 			return redirect()->action('OrganizationsController@show', ['id' => $orgId])->with('message', 'Project 13 Added');
 		}
+		// Otherwise, the requesting form was creating a Project 13 from the Project 13 index
 		else {
 			return \Redirect::route('project13s.index')->with('message', 'Project 13 Added');
 		}
