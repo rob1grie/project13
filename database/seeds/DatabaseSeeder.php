@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 //			['name' => 'none', 'display_name' => '[None]'],
 //			['name' => 'district_admin', 'display_name' => 'District Administrator'],
 //			['name' => 'org_admin', 'display_name' => 'Organization Administrator'],
-//			['name' => 'black_hat', 'display_name' => 'Black Hat'],
+//			['name' => 'gold_hat', 'display_name' => 'Gold Hat'],
 //			['name' => 'white_hat', 'display_name' => 'White Hat'],
 //			['name' => 'blue_hat', 'display_name' => 'Blue Hat'],
 //			['name' => 'yellow_hat', 'display_name' => 'Yellow Hat']
