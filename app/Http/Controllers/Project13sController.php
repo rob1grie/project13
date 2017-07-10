@@ -30,7 +30,6 @@ class Project13sController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
-//		$organizations = Organization::pluck('name', 'id')->sortBy('name');
 		$organizations = Organization::pluck('name', 'id')->sort(function($a, $b) {
 			if ($a === $b) {
 				return 0;
@@ -38,17 +37,6 @@ class Project13sController extends Controller {
 			return ($a > $b) ? 1 : -1;
 		});
 		$organizations->prepend('[Select the Organization]', 0);
-
-		/*
-		 * $collection->sort(function ($a, $b) {
-		  9         $a = $a->year;
-		  10         $b = $b->year;
-		  11         if ($a === $b) {
-		  12             return 0;
-		  13         }
-		  14         return ($a > $b) ? 1 : -1;
-		  15     });
-		 */
 
 		return view('project13/create', compact('organizations'));
 	}

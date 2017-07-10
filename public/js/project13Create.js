@@ -60,8 +60,10 @@ function initSelectControls(orgId, isOrgP13 = false) {
 		// Initialize usedMembers array
 		usedMembers = [];
 		$.each(selectControls, function (index, controlId) {
+			// Use jquery to select the control
 			control = $('#' + controlId.name);
 
+			// Ensure the select control is empty, then add each option to the select
 			control.empty();
 			control.append('<option value="0">[Select]</option>');
 			availMembers.forEach(function (member) {
@@ -199,6 +201,7 @@ function updateAvailMembers(data) {
 
 /*
  * Initialize availMembers, as when the organization changes
+ * data variable is collected in initSelectControls getRoute
  */
 function initAvailMembers(data) {
 // Ensure that availItems is empty
@@ -212,7 +215,7 @@ function initAvailMembers(data) {
 }
 
 /*
- * Add the Member referenced in 'data' to availMembers and re-sort
+ * Add the Member referenced in 'member' to availMembers and re-sort
  */
 function addAvailMember(member) {
 	availMembers.push({
